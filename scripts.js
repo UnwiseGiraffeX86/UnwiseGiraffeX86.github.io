@@ -88,46 +88,4 @@ document.addEventListener('DOMContentLoaded', function() {
         canvas.height = window.innerHeight;
         createStars();
     });
-
-    // Spinning Earth and Moon
-    function initEarth() {
-        const container = document.getElementById('earth-container');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
-        
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        container.appendChild(renderer.domElement);
-
-        const loader = new THREE.TextureLoader();
-
-        const earthGeometry = new THREE.SphereGeometry(1, 32, 32);
-        const earthMaterial = new THREE.MeshBasicMaterial({
-            map: loader.load('https://threejsfundamentals.org/threejs/resources/images/earth.jpg')
-        });
-        const earth = new THREE.Mesh(earthGeometry, earthMaterial);
-        scene.add(earth);
-
-        const moonGeometry = new THREE.SphereGeometry(0.27, 32, 32);
-        const moonMaterial = new THREE.MeshBasicMaterial({
-            map: loader.load('https://threejsfundamentals.org/threejs/resources/images/moon.jpg')
-        });
-        const moon = new THREE.Mesh(moonGeometry, moonMaterial);
-        moon.position.set(2, 0, 0);
-        scene.add(moon);
-
-        camera.position.z = 3;
-
-        function animate() {
-            requestAnimationFrame(animate);
-            earth.rotation.y += 0.001;
-            moon.rotation.y += 0.001;
-            moon.position.x = Math.cos(Date.now() * 0.001) * 2;
-            moon.position.z = Math.sin(Date.now() * 0.001) * 2;
-            renderer.render(scene, camera);
-        }
-        animate();
-    }
-
-    window.onload = initEarth;
 });
