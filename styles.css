@@ -5,7 +5,7 @@ body {
     padding: 0;
     background: transparent;
     color: #fff;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #star-background {
@@ -113,9 +113,14 @@ h2 {
     color: #ffd700;
 }
 
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
 .project {
     background: rgba(0, 0, 0, 0.5);
-    margin: 1rem 0;
     padding: 1rem;
     border-radius: 10px;
     transition: transform 0.3s;
