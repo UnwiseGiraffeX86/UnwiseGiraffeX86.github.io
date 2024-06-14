@@ -91,7 +91,7 @@ function init3D() {
 
     // Load the GLTF model
     const loader = new THREE.GLTFLoader();
-    loader.load('untitled.gltf', function(gltf) {
+    loader.load('untitled.glb', function(gltf) {
         const model = gltf.scene;
         scene.add(model);
         model.rotation.y = Math.PI; // Rotate the model
@@ -103,11 +103,6 @@ function init3D() {
 
     function animate() {
         requestAnimationFrame(animate);
-        scene.traverse(function(child) {
-            if (child.isMesh) {
-                child.rotation.y += 0.01;
-            }
-        });
         renderer.render(scene, camera);
     }
     animate();
