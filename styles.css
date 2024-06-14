@@ -82,6 +82,7 @@ section .container {
 h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #ffd700; /* Gold color for better contrast */
 }
 
 .project {

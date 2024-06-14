@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stars.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                size: Math.random() * 2,
+                size: Math.random() * 2 + 1,
                 speed: Math.random() * 0.5 + 0.1
             });
         }
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         shootingStars.push({
             x: Math.random() * canvas.width,
             y: 0,
-            size: Math.random() * 2,
+            size: Math.random() * 2 + 1,
             speed: Math.random() * 15 + 5,
             length: Math.random() * 300 + 50,
             duration: Math.random() * 5 + 1,
