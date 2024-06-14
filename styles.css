@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -107,14 +107,14 @@ h2 {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .project {
     background: rgba(0, 0, 0, 0.5);
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 10px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project img {
@@ -124,6 +124,8 @@ h2 {
 
 .project h3 {
     margin-top: 0.5rem;
+    font-size: 1.5rem;
+    color: #ffd700;
 }
 
 .project p {
@@ -131,7 +133,8 @@ h2 {
 }
 
 .project:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 footer {
