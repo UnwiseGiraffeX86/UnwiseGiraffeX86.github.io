@@ -101,14 +101,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const earthGeometry = new THREE.SphereGeometry(1, 32, 32);
         const earthMaterial = new THREE.MeshBasicMaterial({
-            map: new THREE.TextureLoader().load('earth.jpg')
+            map: new THREE.TextureLoader().load('path/to/earth.jpg') // Adjust path as needed
         });
         const earth = new THREE.Mesh(earthGeometry, earthMaterial);
         scene.add(earth);
 
         const moonGeometry = new THREE.SphereGeometry(0.27, 32, 32);
         const moonMaterial = new THREE.MeshBasicMaterial({
-            map: new THREE.TextureLoader().load('moon.jpg')
+            map: new THREE.TextureLoader().load('path/to/moon.jpg') // Adjust path as needed
         });
         const moon = new THREE.Mesh(moonGeometry, moonMaterial);
         moon.position.set(2, 0, 0);

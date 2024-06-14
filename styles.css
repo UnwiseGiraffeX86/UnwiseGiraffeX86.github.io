@@ -20,8 +20,8 @@ body {
 
 #earth-container {
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 20px;
+    right: 20px;
     width: 300px;
     height: 300px;
     z-index: -1;
@@ -30,12 +30,19 @@ body {
 header {
     background: rgba(0, 0, 0, 0.8);
     padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 nav ul {
@@ -52,25 +59,39 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
 }
 
 button.sign-up {
-    background-color: #fff;
+    background-color: #ffd700;
     color: #302b63;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.sign-up:hover {
+    background-color: #ffcc00;
 }
 
 section {
-    padding: 2rem 1rem;
+    padding: 6rem 1rem 2rem;
     text-align: center;
+    margin-top: 60px;
 }
 
 section#home {
     background: rgba(0, 0, 0, 0.7);
-    padding: 2rem 0;
+    padding: 6rem 0;
+    color: #ffd700;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px #000;
 }
 
 section .container {
@@ -80,9 +101,16 @@ section .container {
 }
 
 h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #ffd700; /* Gold color for better contrast */
+    color: #ffd700;
 }
 
 .project {
@@ -90,6 +118,11 @@ h1 {
     margin: 1rem 0;
     padding: 1rem;
     border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: scale(1.05);
 }
 
 footer {
@@ -114,6 +147,8 @@ input, textarea {
     margin-bottom: 1rem;
     border: none;
     border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 button {
@@ -123,4 +158,14 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background: #3a3f7d;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
