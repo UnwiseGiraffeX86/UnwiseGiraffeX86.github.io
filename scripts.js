@@ -81,11 +81,20 @@ function init3D() {
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
+    // Add lighting
+    const ambientLight = new THREE.AmbientLight(0x404040, 2);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 5, 5).normalize();
+    scene.add(directionalLight);
+
     // Load the GLTF model
     const loader = new THREE.GLTFLoader();
-    loader.load('untitled.glb', function(gltf) {
-        scene.add(gltf.scene);
-        gltf.scene.rotation.y = Math.PI; // Rotate the model
+    loader.load('untitled.gltf', function(gltf) {
+        const model = gltf.scene;
+        scene.add(model);
+        model.rotation.y = Math.PI; // Rotate the model
     }, undefined, function(error) {
         console.error(error);
     });
