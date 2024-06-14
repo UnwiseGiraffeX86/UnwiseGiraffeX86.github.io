@@ -3,24 +3,28 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #1e3c72, #2a5298); /* Space-like gradient */
+    background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
     color: #fff;
 }
 
 header {
     background: rgba(0, 0, 0, 0.8);
-    color: #fff;
     padding: 1rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav ul {
     list-style: none;
-    text-align: center;
+    display: flex;
     padding: 0;
 }
 
 nav ul li {
-    display: inline;
     margin: 0 1rem;
 }
 
@@ -30,6 +34,15 @@ nav ul li a {
     font-size: 1.2rem;
 }
 
+button.sign-up {
+    background-color: #fff;
+    color: #302b63;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 section {
     padding: 2rem 1rem;
     text-align: center;
@@ -37,6 +50,27 @@ section {
 
 section#home {
     background: rgba(0, 0, 0, 0.7);
+    padding: 2rem 0;
+}
+
+section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.slider {
+    margin: 2rem 0;
+}
+
+.slider img {
+    width: 100%;
+    border-radius: 10px;
 }
 
 .project {
@@ -48,12 +82,8 @@ section#home {
 
 footer {
     background: rgba(0, 0, 0, 0.8);
-    color: #fff;
     text-align: center;
     padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 form {
@@ -76,15 +106,9 @@ input, textarea {
 
 button {
     padding: 0.5rem;
-    background: #2a5298;
+    background: #302b63;
     color: #fff;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-}
-
-#3d-container {
-    width: 100%;
-    height: 400px;
-    margin-top: 20px;
 }
