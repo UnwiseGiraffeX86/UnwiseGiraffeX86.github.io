@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
             dustClouds.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                size: Math.random() * 50 + 50,
-                alpha: Math.random() * 0.5 + 0.1
+                size: Math.random() * 100 + 50,
+                alpha: Math.random() * 0.3 + 0.1
             });
         }
     }
@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
             supernovae.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                size: Math.random() * 10 + 5,
-                alpha: Math.random() * 0.5 + 0.5
+                size: Math.random() * 30 + 10,
+                alpha: Math.random() * 0.7 + 0.3
             });
         }
     }
