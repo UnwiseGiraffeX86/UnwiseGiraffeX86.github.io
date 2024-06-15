@@ -192,12 +192,11 @@ document.addEventListener('DOMContentLoaded', function() {
     scene.add(supernova);
 
     function animate() {
-        requestAnimationFrame(animate);
-
         dustMaterial.uniforms.time.value += 0.05;
         supernovaMaterial.uniforms.time.value += 0.05;
 
         renderer.render(scene, camera);
+        requestAnimationFrame(animate);
     }
 
     animate();
