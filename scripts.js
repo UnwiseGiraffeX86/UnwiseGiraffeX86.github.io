@@ -108,29 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create procedural dust clouds
     const dustGeometry = new THREE.BufferGeometry();
-    const dustMaterial = new THREE.ShaderMaterial({
-        uniforms: {
-            time: { value: 1.0 },
-            resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
-        },
-        vertexShader: `
-            varying vec3 vPos;
-            void main() {
-                vPos = position;
-                vec4 modelViewPosition = modelViewMatrix * vec4(position, 1.0);
-                gl_Position = projectionMatrix * modelViewPosition;
-            }
-        `,
-        fragmentShader: `
-            uniform float time;
-            varying vec3 vPos;
-            void main() {
-                float brightness = 0.1 / length(vPos);
-                gl_FragColor = vec4(vec3(brightness), 1.0);
-            }
-        `,
-        transparent: true
-    });
+    const dustMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.02 });
 
     const dustPositions = [];
     for (let i = 0; i < 1000; i++) {
@@ -144,29 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create procedural supernovae
     const supernovaGeometry = new THREE.BufferGeometry();
-    const supernovaMaterial = new THREE.ShaderMaterial({
-        uniforms: {
-            time: { value: 1.0 },
-            resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
-        },
-        vertexShader: `
-            varying vec3 vPos;
-            void main() {
-                vPos = position;
-                vec4 modelViewPosition = modelViewMatrix * vec4(position, 1.0);
-                gl_Position = projectionMatrix * modelViewPosition;
-            }
-        `,
-        fragmentShader: `
-            uniform float time;
-            varying vec3 vPos;
-            void main() {
-                float brightness = 0.5 / length(vPos);
-                gl_FragColor = vec4(vec3(brightness), 1.0);
-            }
-        `,
-        transparent: true
-    });
+    const supernovaMaterial = new THREE.PointsMaterial({ color: 0xffcc00, size: 0.05 });
 
     const supernovaPositions = [];
     for (let i = 0; i < 100; i++) {
@@ -179,8 +135,8 @@ document.addEventListener('DOMContentLoaded', function() {
     scene.add(supernova);
 
     function animate() {
-        dustMaterial.uniforms.time.value += 0.05;
-        supernovaMaterial.uniforms.time.value += 0.05;
+        dustCloud.rotation.y += 0.001;
+        supernova.rotation.y += 0.002;
 
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
