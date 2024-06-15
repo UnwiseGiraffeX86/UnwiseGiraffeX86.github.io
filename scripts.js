@@ -97,17 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
         createStars();
     });
 
-    // Mouseover effect
-    canvas.addEventListener('mousemove', (event) => {
-        const x = event.clientX;
-        const y = event.clientY;
-        
-        ctx.beginPath();
-        ctx.arc(x, y, 50, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-        ctx.fill();
-    });
-
     // Three.js for procedural dust clouds and supernovae
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -122,10 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const dustMaterial = new THREE.ShaderMaterial({
         uniforms: {
             time: { value: 1.0 },
-            resolution: { value: new THREE.Vector2() }
+            resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
         },
         vertexShader: `
-            uniform float time;
             varying vec3 vPos;
             void main() {
                 vPos = position;
@@ -159,10 +147,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const supernovaMaterial = new THREE.ShaderMaterial({
         uniforms: {
             time: { value: 1.0 },
-            resolution: { value: new THREE.Vector2() }
+            resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
         },
         vertexShader: `
-            uniform float time;
             varying vec3 vPos;
             void main() {
                 vPos = position;
