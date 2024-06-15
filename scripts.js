@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let shootingStars = [];
     let dustClouds = [];
     let supernovae = [];
+    let lastShootingStarTime = 0;
 
     function createStars() {
         stars = [];
@@ -117,18 +118,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function animateStars() {
+    function animateStars(timestamp) {
         updateStars();
         drawStars();
+
+        // Create shooting stars at intervals
+        if (timestamp - lastShootingStarTime > 1000) {
+            createShootingStars();
+            lastShootingStarTime = timestamp;
+        }
+
         requestAnimationFrame(animateStars);
     }
 
     createStars();
     createDustClouds();
     createSupernovae();
-    animateStars();
-
-    setInterval(createShootingStars, 1000);
+    requestAnimationFrame(animateStars);
 
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
