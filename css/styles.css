@@ -1,20 +1,52 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset some basic elements */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
+    color: #333;
+    background-color: #222; /* Uniform dark background color */
+    overflow-x: hidden;
 }
 
+/* Global container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styling */
 header {
-    background: #333;
+    background: #111;
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+header h1 {
+    font-weight: 300;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Navigation Bar */
 nav ul {
     list-style: none;
     padding: 0;
+    text-align: center;
+    background-color: #111;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav ul li {
@@ -25,21 +57,116 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
 
+nav ul li a:hover {
+    background: #333;
+}
+
+/* Section Styling */
 section {
-    padding: 20px;
+    padding: 60px 20px;
+    background: #333; /* Background consistent with overall design */
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+section h2 {
+    font-size: 2em;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
 
 #cad-viewer {
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    background: #f9f9f9;
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: #000;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    opacity: 0; /* Start hidden */
+    transition: opacity 1s ease-in-out;
 }
 
+/* Footer Styling */
 footer {
+    background: #111;
+    color: #fff;
     text-align: center;
     padding: 20px;
-    background: #333;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Button Styling */
+button {
+    background: #111;
     color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #333;
+}
+
+/* Fade in/out for sections */
+section.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+section.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+
+    section h2 {
+        font-size: 1.75em;
+    }
+
+    section p {
+        font-size: 1em;
+    }
 }
