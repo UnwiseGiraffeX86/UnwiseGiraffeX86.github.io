@@ -10,12 +10,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, viewerContainer.clientWidth / viewerContainer.clientHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(55, viewerContainer.clientWidth / viewerContainer.clientHeight, 0.1, 1000);
+    
+    // Improved renderer with higher resolution
     const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio); // Set to device pixel ratio for higher resolution
     renderer.setSize(viewerContainer.clientWidth, viewerContainer.clientHeight);
     viewerContainer.style.width = "100%";
     viewerContainer.style.height = "100%";
-    renderer.setSize(window.innerWidth, window.innerHeight);
     viewerContainer.appendChild(renderer.domElement);
 
     // Add lighting
@@ -27,17 +29,19 @@ document.addEventListener("DOMContentLoaded", function() {
     scene.add(directionalLight);
 
     // Adjust the camera position
-    camera.position.set(0, 0, 30);
+    camera.position.set(0, 0, 50);
     camera.lookAt(0, 0, 0);
 
     let model;
+    let isPrimaryRotationComplete = false;
+    let isWaitingForSecondaryScroll = false;
 
     // Load the GLB model
     const loader = new THREE.GLTFLoader();
     loader.load('assets/models/main.glb', function(gltf) {
         model = gltf.scene;
         model.position.set(0, 0, 0);
-        model.scale.set(3, 3, 3);
+        model.scale.set(5, 5, 5);
         scene.add(model);
         console.log('GLB model loaded successfully!');
     }, function(xhr) {
@@ -55,16 +59,45 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Scroll event for rotation
     window.addEventListener('scroll', () => {
-        if (model) {
-            const maxRotation = Math.PI / 4; // +45 degrees in radians
+        if (model && !isPrimaryRotationComplete) {
+            const maxRotationX = Math.PI / 4; // +45 degrees in radians for the initial rotation
             const scrollTop = window.scrollY;
-            const scrollHeight = viewerContainer.clientHeight / 2; // Faster rotation within half the height
+            const scrollHeight = viewerContainer.clientHeight / 2;
             const rotationProgress = scrollTop / scrollHeight;
 
-            // Clamp rotation between 0 and +45 degrees
-            model.rotation.x = THREE.MathUtils.clamp(rotationProgress * maxRotation, 0, maxRotation);
+            // Rotate bottom to top
+            model.rotation.x = THREE.MathUtils.clamp(rotationProgress * maxRotationX, 0, maxRotationX);
+
+            // Check if the initial rotation is complete
+            if (rotationProgress >= 1) {
+                isPrimaryRotationComplete = true;
+                setTimeout(() => {
+                    isWaitingForSecondaryScroll = true;
+                }, 1000); // Wait for 1 second before allowing the next scroll
+            }
+        }
+
+        if (model && isPrimaryRotationComplete && isWaitingForSecondaryScroll) {
+            const secondaryScrollTop = window.scrollY - viewerContainer.clientHeight;
+            const secondaryScrollHeight = viewerContainer.clientHeight / 2;
+            const secondaryRotationProgress = secondaryScrollTop / secondaryScrollHeight;
+
+            if (secondaryRotationProgress > 0) {
+                initiateSecondaryRotation(secondaryRotationProgress);
+            }
         }
     });
+
+    function initiateSecondaryRotation(progress) {
+        const targetRotationZ = Math.PI; // 180 degrees
+
+        // Rotate around the top-right to bottom-left axis
+        model.rotation.z = THREE.MathUtils.clamp(progress * targetRotationZ, 0, targetRotationZ);
+
+        if (progress >= 1) {
+            isWaitingForSecondaryScroll = false;
+        }
+    }
 
     // Animation loop
     function animate() {

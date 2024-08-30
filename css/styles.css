@@ -85,8 +85,9 @@ section p {
 /* CAD Viewer */
 #cad-viewer {
     position: relative;
-    width: 100%;
+    width: 80%; /* Make the viewer narrower */
     height: 100vh;
+    margin: 0 auto; /* Center the viewer */
     background: #000; /* Match site background color */
     overflow: hidden;
 }
@@ -143,5 +144,9 @@ button:hover {
 
     section p {
         font-size: 1em;
+    }
+
+    #cad-viewer {
+        width: 90%; /* Adjust for smaller screens */
     }
 }
