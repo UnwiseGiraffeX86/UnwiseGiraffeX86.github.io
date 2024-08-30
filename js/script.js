@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
     viewerContainer.appendChild(renderer.domElement);
 
     // Add lighting
-    const light = new THREE.AmbientLight(0x404040, 5); // soft white light
-    scene.add(light);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2); // Brighter ambient light
+    scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(1, 1, 1).normalize();
@@ -25,22 +25,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Load the GLB model
     const loader = new THREE.GLTFLoader();
-    loader.load('assets/models/pcb.glb', function(gltf) {
-        scene.add(gltf.scene);
+    loader.load('assets/models/main.glb', function(gltf) {
+        const model = gltf.scene;
+
+        // Reposition the model
+        model.position.set(0, 0, 0);
+
+        // Scale the model
+        model.scale.set(1, 1, 1);
+
+        scene.add(model);
         console.log('GLB model loaded successfully!');
-
-        // Optional: center and scale the model
-        const box = new THREE.Box3().setFromObject(gltf.scene);
-        const center = box.getCenter(new THREE.Vector3());
-        const size = box.getSize(new THREE.Vector3());
-
-        gltf.scene.position.x -= center.x;
-        gltf.scene.position.y -= center.y;
-        gltf.scene.position.z -= center.z;
-
-        const maxSize = Math.max(size.x, size.y, size.z);
-        const scale = 1 / maxSize;
-        gltf.scene.scale.set(scale, scale, scale);
 
     }, function(xhr) {
         console.log((xhr.loaded / xhr.total * 100) + '% loaded');
@@ -48,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error('An error occurred while loading the GLB model:', error);
     });
 
-    camera.position.z = 5;
+    camera.position.z = 10;  // Move the camera further back
 
     // Animation loop
     function animate() {
