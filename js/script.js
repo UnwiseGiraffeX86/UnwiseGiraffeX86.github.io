@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Load the GLB model
     const loader = new THREE.GLTFLoader();
-    loader.load('assets/models/yourmodel.glb', function(gltf) {
+    loader.load('assets/models/main.glb', function(gltf) {
         const model = gltf.scene;
 
         // Center and scale the model
