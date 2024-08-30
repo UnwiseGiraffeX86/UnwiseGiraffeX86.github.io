@@ -31,8 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
     camera.lookAt(0, 0, 0);
 
     let model;
-    let isRotating = true; // To manage when to allow scrolling
-    let rotationComplete = false; // To indicate when rotation is complete
 
     // Load the GLB model
     const loader = new THREE.GLTFLoader();
@@ -57,29 +55,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Scroll event for rotation
     window.addEventListener('scroll', () => {
-        if (model && isRotating) {
+        if (model) {
             const maxRotation = Math.PI / 4; // +45 degrees in radians
-            const scrollTop = window.scrollY - viewerContainer.offsetTop;
-            const scrollHeight = viewerContainer.clientHeight;
+            const scrollTop = window.scrollY;
+            const scrollHeight = viewerContainer.clientHeight / 2; // Faster rotation within half the height
             const rotationProgress = scrollTop / scrollHeight;
 
             // Clamp rotation between 0 and +45 degrees
             model.rotation.x = THREE.MathUtils.clamp(rotationProgress * maxRotation, 0, maxRotation);
-
-            // Lock the scroll while the rotation is in progress
-            if (rotationProgress >= 1) {
-                isRotating = false; // Stop rotation, unlock scroll
-                rotationComplete = true;
-            } else if (rotationProgress < 1) {
-                isRotating = true; // Continue rotating
-                rotationComplete = false;
-            }
-        }
-
-        if (!isRotating && !rotationComplete) {
-            document.body.style.overflowY = 'hidden'; // Lock scrolling
-        } else {
-            document.body.style.overflowY = 'auto'; // Unlock scrolling
         }
     });
 
