@@ -31,7 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
     camera.lookAt(0, 0, 0);
 
     let model;
-    let scrollComplete = false;
+    let isRotating = true; // To manage when to allow scrolling
+    let rotationComplete = false; // To indicate when rotation is complete
 
     // Load the GLB model
     const loader = new THREE.GLTFLoader();
@@ -56,8 +57,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Scroll event for rotation
     window.addEventListener('scroll', () => {
-        if (model && !scrollComplete) {
-            const maxRotation = Math.PI / 4;
+        if (model && isRotating) {
+            const maxRotation = Math.PI / 4; // +45 degrees in radians
             const scrollTop = window.scrollY - viewerContainer.offsetTop;
             const scrollHeight = viewerContainer.clientHeight;
             const rotationProgress = scrollTop / scrollHeight;
@@ -65,13 +66,20 @@ document.addEventListener("DOMContentLoaded", function() {
             // Clamp rotation between 0 and +45 degrees
             model.rotation.x = THREE.MathUtils.clamp(rotationProgress * maxRotation, 0, maxRotation);
 
-            // Lock scroll while rotation is in progress
+            // Lock the scroll while the rotation is in progress
             if (rotationProgress >= 1) {
-                scrollComplete = true;
-                document.body.style.overflowY = 'auto';  // Allow scrolling after rotation is complete
-            } else {
-                document.body.style.overflowY = 'hidden';  // Lock scrolling
+                isRotating = false; // Stop rotation, unlock scroll
+                rotationComplete = true;
+            } else if (rotationProgress < 1) {
+                isRotating = true; // Continue rotating
+                rotationComplete = false;
             }
+        }
+
+        if (!isRotating && !rotationComplete) {
+            document.body.style.overflowY = 'hidden'; // Lock scrolling
+        } else {
+            document.body.style.overflowY = 'auto'; // Unlock scrolling
         }
     });
 
