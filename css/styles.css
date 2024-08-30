@@ -31,6 +31,12 @@ section {
     padding: 20px;
 }
 
+#cad-viewer {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
 footer {
     text-align: center;
     padding: 20px;
