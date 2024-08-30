@@ -16,16 +16,22 @@ document.addEventListener("DOMContentLoaded", function() {
     viewerContainer.appendChild(renderer.domElement);
 
     // Add lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 4); // Increase ambient light intensity
+    const ambientLight = new THREE.AmbientLight(0xffffff, 5); // Increase ambient light intensity
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-    directionalLight.position.set(5, 5, 5).normalize();
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+    directionalLight.position.set(10, 10, 10).normalize();
     scene.add(directionalLight);
 
     // Adjust the camera position
-    camera.position.set(0, 0, 10);  // Move the camera back
+    camera.position.set(0, 0, 20);  // Move the camera further back
     camera.lookAt(0, 0, 0);  // Ensure the camera is looking at the scene center
+
+    // Add a simple cube for testing
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
 
     // Load the GLB model
     const loader = new THREE.GLTFLoader();
@@ -34,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Center and scale the model
         model.position.set(0, 0, 0);
-        model.scale.set(1, 1, 1);
+        model.scale.set(5, 5, 5);  // Increase the scale to ensure visibility
 
         scene.add(model);
         console.log('GLB model loaded successfully!');
