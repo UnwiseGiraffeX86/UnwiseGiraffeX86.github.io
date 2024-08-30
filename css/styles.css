@@ -13,8 +13,9 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #222; /* Uniform dark background color */
+    background-color: #222; /* Uniform dark background */
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Global container styling */
@@ -70,7 +71,7 @@ nav ul li a:hover {
 /* Section Styling */
 section {
     padding: 60px 20px;
-    background: #333; /* Background consistent with overall design */
+    background: #333;
     margin-bottom: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -92,12 +93,12 @@ section p {
 #cad-viewer {
     position: relative;
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     background: #000;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    opacity: 0; /* Start hidden */
+    opacity: 1;
     transition: opacity 1s ease-in-out;
 }
 
@@ -133,18 +134,6 @@ button {
 
 button:hover {
     background: #333;
-}
-
-/* Fade in/out for sections */
-section.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-}
-
-section.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* Media Queries for Responsiveness */

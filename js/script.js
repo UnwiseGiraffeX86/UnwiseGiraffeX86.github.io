@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     viewerContainer.appendChild(renderer.domElement);
 
     // Add lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 2); // Softer ambient light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2);
     scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
@@ -27,21 +27,18 @@ document.addEventListener("DOMContentLoaded", function() {
     scene.add(directionalLight);
 
     // Adjust the camera position
-    camera.position.set(0, 0, 30);  // Adjusted camera position for better initial view
-    camera.lookAt(0, 0, 0);  // Ensure the camera is looking at the scene center
+    camera.position.set(0, 0, 30);
+    camera.lookAt(0, 0, 0);
 
     let model;
-    let rotationComplete = false;
+    let scrollComplete = false;
 
     // Load the GLB model
     const loader = new THREE.GLTFLoader();
     loader.load('assets/models/main.glb', function(gltf) {
         model = gltf.scene;
-
-        // Center and scale the model
         model.position.set(0, 0, 0);
-        model.scale.set(3, 3, 3);  // Adjust the scale based on your preference
-
+        model.scale.set(3, 3, 3);
         scene.add(model);
         console.log('GLB model loaded successfully!');
     }, function(xhr) {
@@ -50,28 +47,17 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error('An error occurred while loading the GLB model:', error);
     });
 
-    // Handle window resize to adjust the viewer
+    // Handle window resize
     window.addEventListener('resize', () => {
         camera.aspect = viewerContainer.clientWidth / viewerContainer.clientHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(viewerContainer.clientWidth, viewerContainer.clientHeight);
     });
 
-    // Lock scroll to the viewer section
-    function lockScroll() {
-        document.body.style.overflow = 'hidden';
-    }
-
-    function unlockScroll() {
-        document.body.style.overflow = 'auto';
-    }
-
-    // Rotate model on scroll
+    // Scroll event for rotation
     window.addEventListener('scroll', () => {
-        if (model && !rotationComplete) {
-            lockScroll();
-
-            const maxRotation = Math.PI / 4; // +45 degrees in radians
+        if (model && !scrollComplete) {
+            const maxRotation = Math.PI / 4;
             const scrollTop = window.scrollY - viewerContainer.offsetTop;
             const scrollHeight = viewerContainer.clientHeight;
             const rotationProgress = scrollTop / scrollHeight;
@@ -79,10 +65,12 @@ document.addEventListener("DOMContentLoaded", function() {
             // Clamp rotation between 0 and +45 degrees
             model.rotation.x = THREE.MathUtils.clamp(rotationProgress * maxRotation, 0, maxRotation);
 
-            // Check if the rotation is complete
+            // Lock scroll while rotation is in progress
             if (rotationProgress >= 1) {
-                rotationComplete = true;
-                unlockScroll();
+                scrollComplete = true;
+                document.body.style.overflowY = 'auto';  // Allow scrolling after rotation is complete
+            } else {
+                document.body.style.overflowY = 'hidden';  // Lock scrolling
             }
         }
     });
