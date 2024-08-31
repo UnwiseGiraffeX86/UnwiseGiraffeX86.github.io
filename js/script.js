@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 isPrimaryRotationComplete = true;
                 setTimeout(() => {
                     isWaitingForSecondaryScroll = true;
-                }, 1000); // Wait for 1 second before allowing the next scroll
+                }, 100); // Wait for 1 second before allowing the next scroll
             }
         }
 
