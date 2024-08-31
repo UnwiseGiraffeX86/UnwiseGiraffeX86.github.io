@@ -21,6 +21,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 /* Header */
@@ -44,6 +45,7 @@ nav ul {
     padding: 0;
     text-align: center;
     background-color: #000;
+    margin-bottom: 20px;
 }
 
 nav ul li {
@@ -82,46 +84,27 @@ section p {
     line-height: 1.8;
 }
 
-/* CAD Viewer */
+/* Flexbox layout for PC */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
 #cad-viewer {
-    position: relative;
-    width: 80%;
-    height: 100vh;
-    margin: 0 auto;
+    width: 60%;
+    height: 80vh;
     background-color: #000;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Text content styling */
 .text-content {
-    position: absolute;
     width: 35%;
     opacity: 0; /* Initially hidden */
     transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-#text1 {
-    left: 10%; /* Positioned on the left */
-    top: 50%;
-    transform: translate(-50px, -50%); /* Slide from left */
-}
-
-#text2 {
-    right: 10%; /* Positioned on the right */
-    top: 50%;
-    transform: translate(50px, -50%); /* Slide from right */
-}
-
-.text-content.visible {
-    opacity: 1;
-    transform: translate(0, -50%); /* Slide into place */
-}
-
-.text-content.hidden {
-    opacity: 0;
-    transform: translateX(50px); /* Slide out smoothly */
 }
 
 .text-content h2 {
@@ -137,6 +120,16 @@ section p {
 
 .text-content .highlight {
     color: #00ff00; /* Green color for emphasis */
+}
+
+.text-content.visible {
+    opacity: 1;
+    transform: translateX(0); /* Slide into place */
+}
+
+.text-content.hidden {
+    opacity: 0;
+    transform: translateX(50px); /* Slide out smoothly */
 }
 
 /* Footer */
@@ -193,25 +186,21 @@ button:hover {
         font-size: 1em;
     }
 
+    .content-wrapper {
+        flex-direction: column;
+    }
+
     #cad-viewer {
         width: 90%;
+        height: 60vh;
     }
 
     .text-content {
-        position: static;
         width: 100%;
         margin: 20px 0;
         text-align: center;
         opacity: 1;
         transform: none; /* Remove translate for mobile */
-    }
-
-    #text1 {
-        order: 1; /* Display first text on top */
-    }
-
-    #text2 {
-        order: 3; /* Display second text below the viewer */
     }
 
     .text-content.hidden {
