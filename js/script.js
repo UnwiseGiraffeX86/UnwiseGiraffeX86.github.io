@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function() {
             // Rotate bottom to top
             model.rotation.x = THREE.MathUtils.clamp(rotationProgress * Math.PI / 4, 0, Math.PI / 4);
 
-            // Trigger first text fade in
-            if (rotationProgress > 0.2) {
+            // Trigger first text fade in when rotation starts
+            if (rotationProgress > 0.1 && !text1.classList.contains('visible')) {
                 text1.classList.add('visible');
             }
 
@@ -95,8 +95,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 initiateSecondaryRotation(secondaryRotationProgress);
             }
 
-            // Trigger second text fade in
-            if (secondaryRotationProgress > 0.2) {
+            // Trigger second text fade in when secondary rotation starts
+            if (secondaryRotationProgress > 0.1 && !text2.classList.contains('visible')) {
                 text2.classList.add('visible');
             }
         }
