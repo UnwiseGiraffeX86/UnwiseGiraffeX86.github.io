@@ -17,15 +17,15 @@ body {
     overflow-x: hidden;
 }
 
-/* Global container styling */
+/* Global Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Header Styling */
+/* Header */
 header {
-    background: #000;
+    background-color: #000;
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -38,7 +38,7 @@ header h1 {
     letter-spacing: 1px;
 }
 
-/* Navigation Bar */
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -47,7 +47,7 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin: 0 15px;
 }
 
@@ -56,19 +56,19 @@ nav ul li a {
     text-decoration: none;
     font-weight: 500;
     padding: 5px 10px;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
 }
 
 nav ul li a:hover {
-    background: #333;
+    background-color: #333;
 }
 
-/* Section Styling */
+/* Section */
 section {
     padding: 60px 0;
-    background: #000; /* Background consistent with overall design */
+    background-color: #000;
     color: #fff;
-    border-bottom: 1px solid #333; /* Slight border to differentiate sections */
+    border-bottom: 1px solid #333;
 }
 
 section h2 {
@@ -85,16 +85,63 @@ section p {
 /* CAD Viewer */
 #cad-viewer {
     position: relative;
-    width: 80%; /* Make the viewer narrower */
+    width: 80%;
     height: 100vh;
-    margin: 0 auto; /* Center the viewer */
-    background: #000; /* Match site background color */
+    margin: 0 auto;
+    background-color: #000;
     overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Footer Styling */
+/* Text content styling */
+.text-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35%;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#text1 {
+    left: 10%; /* Positioned on the left */
+    transform: translateX(-50px); /* Slide from left */
+}
+
+#text2 {
+    right: 10%; /* Positioned on the right */
+    transform: translateX(50px); /* Slide from right */
+}
+
+.text-content.visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0); /* Slide into place */
+}
+
+.text-content.hidden {
+    opacity: 0;
+    transform: translateY(0) translateX(50px); /* Slide out smoothly */
+}
+
+.text-content h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.text-content p {
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+.text-content .highlight {
+    color: #00ff00; /* Green color for emphasis */
+}
+
+/* Footer */
 footer {
-    background: #000;
+    background-color: #000;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -107,23 +154,23 @@ footer p {
     letter-spacing: 1px;
 }
 
-/* Button Styling */
+/* Button */
 button {
-    background: #111;
+    background-color: #111;
     color: #fff;
     border: none;
     padding: 10px 20px;
     font-size: 1em;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-    background: #333;
+    background-color: #333;
 }
 
-/* Media Queries for Responsiveness */
+/* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2em;
@@ -147,6 +194,14 @@ button:hover {
     }
 
     #cad-viewer {
-        width: 90%; /* Adjust for smaller screens */
+        width: 90%;
+    }
+
+    .text-content {
+        position: static;
+        transform: translateY(0);
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
     }
 }

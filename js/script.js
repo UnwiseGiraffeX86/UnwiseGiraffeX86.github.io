@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed.");
 
     const viewerContainer = document.getElementById('cad-viewer');
+    const text1 = document.getElementById('text1');
+    const text2 = document.getElementById('text2');
 
     if (!viewerContainer) {
         console.error("Viewer container not found!");
@@ -11,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(55, viewerContainer.clientWidth / viewerContainer.clientHeight, 0.1, 1000);
-    
+
     // Improved renderer with higher resolution
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio); // Set to device pixel ratio for higher resolution
@@ -57,23 +59,30 @@ document.addEventListener("DOMContentLoaded", function() {
         renderer.setSize(viewerContainer.clientWidth, viewerContainer.clientHeight);
     });
 
-    // Scroll event for rotation
+    // Scroll event for rotation and text animation
     window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const scrollHeight = viewerContainer.clientHeight / 2;
+
         if (model && !isPrimaryRotationComplete) {
-            const maxRotationX = Math.PI / 4; // +45 degrees in radians for the initial rotation
-            const scrollTop = window.scrollY;
-            const scrollHeight = viewerContainer.clientHeight / 2;
             const rotationProgress = scrollTop / scrollHeight;
 
             // Rotate bottom to top
-            model.rotation.x = THREE.MathUtils.clamp(rotationProgress * maxRotationX, 0, maxRotationX);
+            model.rotation.x = THREE.MathUtils.clamp(rotationProgress * Math.PI / 4, 0, Math.PI / 4);
+
+            // Trigger first text fade in
+            if (rotationProgress > 0.2) {
+                text1.classList.add('visible');
+            }
 
             // Check if the initial rotation is complete
             if (rotationProgress >= 1) {
                 isPrimaryRotationComplete = true;
                 setTimeout(() => {
+                    text1.classList.remove('visible');
+                    text1.classList.add('hidden');
                     isWaitingForSecondaryScroll = true;
-                }, 100); // Wait for 1 second before allowing the next scroll
+                }, 100); // Wait briefly before allowing the next scroll
             }
         }
 
@@ -84,6 +93,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (secondaryRotationProgress > 0) {
                 initiateSecondaryRotation(secondaryRotationProgress);
+            }
+
+            // Trigger second text fade in
+            if (secondaryRotationProgress > 0.2) {
+                text2.classList.add('visible');
             }
         }
     });
