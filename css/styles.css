@@ -97,8 +97,6 @@ section p {
 /* Text content styling */
 .text-content {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     width: 35%;
     opacity: 0; /* Initially hidden */
     transition: opacity 1s ease-out, transform 1s ease-out;
@@ -106,22 +104,24 @@ section p {
 
 #text1 {
     left: 10%; /* Positioned on the left */
-    transform: translateX(-50px); /* Slide from left */
+    top: 50%;
+    transform: translate(-50px, -50%); /* Slide from left */
 }
 
 #text2 {
     right: 10%; /* Positioned on the right */
-    transform: translateX(50px); /* Slide from right */
+    top: 50%;
+    transform: translate(50px, -50%); /* Slide from right */
 }
 
 .text-content.visible {
     opacity: 1;
-    transform: translateY(0) translateX(0); /* Slide into place */
+    transform: translate(0, -50%); /* Slide into place */
 }
 
 .text-content.hidden {
     opacity: 0;
-    transform: translateY(0) translateX(50px); /* Slide out smoothly */
+    transform: translateX(50px); /* Slide out smoothly */
 }
 
 .text-content h2 {
@@ -199,9 +199,28 @@ button:hover {
 
     .text-content {
         position: static;
-        transform: translateY(0);
         width: 100%;
-        margin-top: 20px;
+        margin: 20px 0;
         text-align: center;
+        opacity: 1;
+        transform: none; /* Remove translate for mobile */
+    }
+
+    #text1 {
+        order: 1; /* Display first text on top */
+    }
+
+    #text2 {
+        order: 3; /* Display second text below the viewer */
+    }
+
+    .text-content.hidden {
+        opacity: 0;
+        transform: translateY(50px); /* Slide out smoothly on mobile */
+    }
+
+    .text-content.visible {
+        opacity: 1;
+        transform: translateY(0); /* Fade in smoothly on mobile */
     }
 }
