@@ -26,51 +26,67 @@ body {
 
 /* Header */
 header {
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     color: #fff;
-    padding: 20px 0;
+    padding: 10px 0;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Glass effect */
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 header h1 {
     font-weight: 300;
-    font-size: 2.5em;
-    letter-spacing: 1px;
+    font-size: 1.8em;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
 }
 
 /* Navigation */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: transparent; /* Transparent to show header background */
+}
+
 nav ul {
     list-style: none;
     padding: 0;
-    text-align: center;
-    background-color: #000;
-    margin-bottom: 20px;
+    margin: 0;
+    display: flex;
 }
 
 nav ul li {
-    display: inline-block;
     margin: 0 15px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-weight: 500;
-    padding: 5px 10px;
-    transition: background 0.3s ease;
+    font-weight: 400;
+    padding: 10px 15px;
+    font-size: 0.95em;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
 }
 
 nav ul li a:hover {
-    background-color: #333;
+    color: #888;
+    border-bottom: 2px solid #888;
 }
 
 /* Section */
 section {
-    padding: 60px 0;
+    padding: 60px 20px;
     background-color: #000;
     color: #fff;
     border-bottom: 1px solid #333;
+    margin-top: 70px; /* Push content below the fixed header */
 }
 
 section h2 {
@@ -86,25 +102,44 @@ section p {
 
 /* Flexbox layout for PC */
 .content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Align items to the start for better vertical alignment */
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 #cad-viewer {
-    width: 60%;
-    height: 80vh;
+    width: 50%;
+    height: 60vh;  /* Adjusted height to better center the PCB */
     background-color: #000;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Center horizontally */
 }
 
 .text-content {
-    width: 35%;
-    opacity: 0; /* Initially hidden */
+    width: auto; /* Auto width to fit content */
+    opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
+    position: absolute;
+    padding: 20px;
+}
+
+#text1 {
+    top: 20px; /* Position at top */
+    left: 20px; /* Position at left */
+}
+
+#text2 {
+    bottom: 20px; /* Position at bottom */
+    right: 20px; /* Position at right */
 }
 
 .text-content h2 {
@@ -124,12 +159,12 @@ section p {
 
 .text-content.visible {
     opacity: 1;
-    transform: translateX(0); /* Slide into place */
+    transform: translateY(0);
 }
 
 .text-content.hidden {
     opacity: 0;
-    transform: translateX(50px); /* Slide out smoothly */
+    transform: translateY(50px);
 }
 
 /* Footer */
@@ -166,16 +201,15 @@ button:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
     nav ul li {
-        display: block;
-        margin: 10px 0;
+        margin: 0 10px;
     }
 
     section {
-        padding: 40px 0;
+        padding: 40px 20px;
     }
 
     section h2 {
@@ -187,38 +221,43 @@ button:hover {
     }
 
     .content-wrapper {
-        flex-direction: column;
-        align-items: center;
+        padding: 20px;
+        height: auto;
+        flex-direction: column; /* Stacks elements vertically on mobile */
     }
 
     #cad-viewer {
         width: 90%;
-        height: 60vh;
+        height: 50vh;
+        margin: 20px 0; /* Add margin for better spacing on mobile */
     }
 
     .text-content {
         width: 100%;
-        margin-bottom: 20px;
         text-align: center;
         opacity: 1;
-        transform: none; /* Remove translate for mobile */
+        transform: none;
     }
 
     #text1 {
-        margin-top: 20px;
+        position: static;
+        margin-bottom: 20px;
+        padding: 20px;
     }
 
     #text2 {
-        margin-bottom: 20px;
+        position: static;
+        margin-top: 20px;
+        padding: 20px;
     }
 
     .text-content.hidden {
         opacity: 0;
-        transform: translateY(50px); /* Slide out smoothly on mobile */
+        transform: translateY(50px);
     }
 
     .text-content.visible {
         opacity: 1;
-        transform: translateY(0); /* Fade in smoothly on mobile */
+        transform: translateY(0);
     }
 }
