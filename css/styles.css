@@ -13,7 +13,7 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: #fff;
-    background-color: #000; /* Unified background color */
+    background-color: #000;
     overflow-x: hidden;
 }
 
@@ -28,7 +28,7 @@ body {
 header {
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     color: #fff;
-    padding: 10px 0;
+    padding: 2vh 0; /* Use viewport height */
     text-align: center;
     position: fixed;
     top: 0;
@@ -36,14 +36,23 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px); /* Glass effect */
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease; /* Add padding transition */
+}
+
+header.shrink {
+    padding: 1vh 0; /* Shrinks padding */
 }
 
 header h1 {
     font-weight: 300;
-    font-size: 1.8em;
+    font-size: 2.5vw; /* Use vw to scale text based on screen width */
     letter-spacing: 0.5px;
-    margin-top: 5px;
+    margin-top: 1vh;
+    transition: font-size 0.3s ease;
+}
+
+header.shrink h1 {
+    font-size: 1.5vw; /* Shrink the title size on scroll */
 }
 
 /* Navigation */
@@ -51,7 +60,7 @@ nav {
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: transparent; /* Transparent to show header background */
+    background-color: transparent;
 }
 
 nav ul {
@@ -62,16 +71,16 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 2vw;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: 400;
-    padding: 10px 15px;
-    font-size: 0.95em;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding: 1vh 1.5vw;
+    font-size: 1.2vw;
+    transition: color 0.3s ease, border-bottom 0.3s ease, font-size 0.3s ease;
     border-bottom: 2px solid transparent;
 }
 
@@ -80,23 +89,27 @@ nav ul li a:hover {
     border-bottom: 2px solid #888;
 }
 
+header.shrink nav ul li a {
+    font-size: 1vw; /* Shrinks nav links font size */
+}
+
 /* Section */
 section {
-    padding: 60px 20px;
+    padding: 6vh 2vw;
     background-color: #000;
     color: #fff;
     border-bottom: 1px solid #333;
-    margin-top: 70px; /* Push content below the fixed header */
+    margin-top: 10vh; /* Push content below the fixed header */
 }
 
 section h2 {
-    font-size: 2em;
+    font-size: 3vw;
     font-weight: 400;
     margin-bottom: 20px;
 }
 
 section p {
-    font-size: 1.1em;
+    font-size: 1.5vw;
     line-height: 1.8;
 }
 
@@ -112,49 +125,45 @@ section p {
 
 #cad-viewer {
     width: 50%;
-    height: 60vh;  /* Adjusted height to better center the PCB */
+    height: 50vh;
     background-color: #000;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto; /* Center horizontally */
+    margin: 0 auto;
 }
 
 .text-content {
-    width: auto; /* Auto width to fit content */
     opacity: 0;
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     position: absolute;
-    padding: 20px;
+    padding: 2vw;
 }
 
+/* First Text (Top-Left) */
 #text1 {
-    top: 20px; /* Position at top */
-    left: 20px; /* Position at left */
+    top: 5vh;
+    left: 2vw;
 }
 
+/* Second Text (Bottom-Right) */
 #text2 {
-    bottom: 20px; /* Position at bottom */
-    right: 20px; /* Position at right */
+    bottom: 5vh;
+    right: 2vw;
 }
 
 .text-content h2 {
-    font-size: 2rem;
+    font-size: 1.8vw;
     font-weight: bold;
     margin-bottom: 15px;
 }
 
 .text-content p {
-    font-size: 1.1rem;
+    font-size: 1.2vw;
     color: #ccc;
-}
-
-.text-content .highlight {
-    color: #00ff00; /* Green color for emphasis */
 }
 
 .text-content.visible {
@@ -172,36 +181,14 @@ footer {
     background-color: #000;
     color: #fff;
     text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
-}
-
-footer p {
-    margin: 0;
-    font-weight: 300;
-    letter-spacing: 1px;
-}
-
-/* Button */
-button {
-    background-color: #111;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background-color: #333;
+    padding: 3vh;
+    font-size: 1.5vw;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 1.5em;
+        font-size: 1.8em;
     }
 
     nav ul li {
@@ -209,7 +196,7 @@ button:hover {
     }
 
     section {
-        padding: 40px 20px;
+        padding: 4vh 20px;
     }
 
     section h2 {
@@ -223,13 +210,13 @@ button:hover {
     .content-wrapper {
         padding: 20px;
         height: auto;
-        flex-direction: column; /* Stacks elements vertically on mobile */
+        flex-direction: column;
     }
 
     #cad-viewer {
         width: 90%;
         height: 50vh;
-        margin: 20px 0; /* Add margin for better spacing on mobile */
+        margin: 20px 0;
     }
 
     .text-content {
