@@ -41,7 +41,7 @@ header {
 
 header h1 {
     font-weight: 300;
-    font-size: 2vw; /* Adjusted title size for smaller screens */
+    font-size: 1.8vw; /* Smaller title size */
     letter-spacing: 0.5px;
     margin-top: 1vh;
     transition: font-size 0.3s ease-in-out;
@@ -71,7 +71,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: 400;
     padding: 1vh 1.5vw;
-    font-size: 1.2vw; /* Shrinked link font size */
+    font-size: 1vw; /* Smaller link font size */
     transition: color 0.3s ease, border-bottom 0.3s ease;
     border-bottom: 2px solid transparent;
 }
@@ -83,20 +83,15 @@ nav ul li a:hover {
 
 /* Project Overview Section Styling */
 .project-overview {
-    padding: 8vh 2vw;
+    padding: 6vh 2vw;
     text-align: center;
     color: #fff;
     background-color: #000;
     border-bottom: 1px solid #333;
 }
 
-.project-overview .container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .project-overview h2 {
-    font-size: 3vw;
+    font-size: 2.5vw; /* Smaller heading */
     font-weight: 600;
     margin-bottom: 30px;
     letter-spacing: 0.5px;
@@ -104,7 +99,7 @@ nav ul li a:hover {
 }
 
 .project-description {
-    font-size: 1.5vw;
+    font-size: 1.2vw; /* Smaller body text */
     line-height: 1.8;
     color: #ddd;
     margin-bottom: 3vh;
@@ -120,11 +115,11 @@ nav ul li a:hover {
 
 .cta-button {
     display: inline-block;
-    padding: 1vh 3vw;
+    padding: 1vh 2.5vw;
     color: #000;
     background-color: #00ff99;
     border-radius: 25px;
-    font-size: 1.5vw;
+    font-size: 1.2vw; /* Slightly smaller button text */
     margin: 20px 0;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -140,23 +135,29 @@ nav ul li a:hover {
     justify-content: center;
     gap: 50px;
     margin-top: 4vh;
+    flex-wrap: nowrap; /* Ensures the items stay on one line */
 }
 
 .project-details .detail-item {
     flex: 1;
     max-width: 250px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the content */
 }
 
 .project-details h3 {
-    font-size: 2vw;
+    font-size: 1.6vw; /* Adjusted size for better desktop display */
     margin-bottom: 1vh;
-    color: #00ff99; /* Same color as highlight */
+    white-space: nowrap; /* Prevents breaking into two lines */
+    color: #00ff99;
 }
 
 .project-details p {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     color: #fff;
+    margin-top: 0.5vh;
 }
 
 /* Section */
@@ -169,13 +170,13 @@ section {
 }
 
 section h2 {
-    font-size: 2.5vw; /* Adjusted font-size for larger screens */
+    font-size: 2vw; /* Adjusted section headings */
     font-weight: 400;
     margin-bottom: 20px;
 }
 
 section p {
-    font-size: 1.2vw;
+    font-size: 1.1vw; /* Smaller paragraph text */
     line-height: 1.8;
 }
 
@@ -222,13 +223,13 @@ section p {
 }
 
 .text-content h2 {
-    font-size: 1.8vw;
+    font-size: 1.5vw; /* Smaller text content headings */
     font-weight: bold;
     margin-bottom: 15px;
 }
 
 .text-content p {
-    font-size: 1.2vw;
+    font-size: 1vw; /* Smaller paragraph text */
     color: #ccc;
 }
 
@@ -248,7 +249,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 3vh;
-    font-size: 1.5vw;
+    font-size: 1.2vw; /* Smaller footer text */
 }
 
 /* Responsive Design */
@@ -262,11 +263,11 @@ footer {
     }
 
     section h2 {
-        font-size: 2.2vw;
+        font-size: 2vw;
     }
 
     section p {
-        font-size: 1.1vw;
+        font-size: 1vw;
     }
 
     .content-wrapper {
@@ -308,39 +309,40 @@ footer {
         transform: translateY(0);
     }
 }
-
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 1.8em;
+        font-size: 2.2em; /* Increase header font size */
     }
 
     nav ul li {
-        margin: 0 10px;
+        margin: 0 15px; /* Increase spacing between nav items */
     }
 
     section {
-        padding: 4vh 20px;
+        padding: 5vh 25px; /* Increase padding for sections */
     }
 
     section h2 {
-        font-size: 1.75em;
+        font-size: 2.2em; /* Increase section heading size */
+        margin-bottom: 20px; /* Add margin below heading */
     }
 
     section p {
-        font-size: 1em;
+        font-size: 1.5em; /* Increase paragraph font size */
+        line-height: 1.8em; /* Improve readability */
     }
 
     .content-wrapper {
-        padding: 20px;
+        padding: 30px;
         height: auto;
         flex-direction: column;
     }
 
     #cad-viewer {
-        width: 90%;
-        height: 50vh;
-        margin: 20px 0;
+        width: 100%;
+        height: 60vh; /* Increase viewer height */
+        margin: 25px 0; /* Increase margin */
     }
 
     .text-content {
@@ -352,14 +354,16 @@ footer {
 
     #text1 {
         position: static;
-        margin-bottom: 20px;
-        padding: 20px;
+        margin-bottom: 30px; /* Increase spacing between content */
+        padding: 25px;
+        font-size: 1.4em; /* Increase font size */
     }
 
     #text2 {
         position: static;
-        margin-top: 20px;
-        padding: 20px;
+        margin-top: 30px; /* Increase spacing between content */
+        padding: 25px;
+        font-size: 1.4em; /* Increase font size */
     }
 
     .text-content.hidden {
@@ -370,5 +374,14 @@ footer {
     .text-content.visible {
         opacity: 1;
         transform: translateY(0);
+    }
+
+    .project-details h3 {
+        font-size: 7vw; /* Further increase for better readability */
+        white-space: normal; /* Allows text to wrap if needed */
+    }
+
+    .project-details p {
+        font-size: 5vw; /* Larger paragraph font for mobile */
     }
 }
