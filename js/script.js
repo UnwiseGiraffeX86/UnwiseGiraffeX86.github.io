@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loader.load('assets/models/main.glb', function (gltf) {
         model = gltf.scene;
         model.position.set(0, 0, 0);
-        model.scale.set(5, 5, 5);
+        model.scale.set(7, 7, 7);
         scene.add(model);
         console.log('GLB model loaded successfully!');
     });

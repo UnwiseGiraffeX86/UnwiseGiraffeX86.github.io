@@ -28,7 +28,7 @@ body {
 header {
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     color: #fff;
-    padding: 2vh 0; /* Use viewport height */
+    padding: 1vh 0; /* Shrinked padding */
     text-align: center;
     position: fixed;
     top: 0;
@@ -36,23 +36,15 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px); /* Glass effect */
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease; /* Add padding transition */
-}
-
-header.shrink {
-    padding: 1vh 0; /* Shrinks padding */
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 header h1 {
     font-weight: 300;
-    font-size: 2.5vw; /* Use vw to scale text based on screen width */
+    font-size: 2vw; /* Adjusted title size for smaller screens */
     letter-spacing: 0.5px;
     margin-top: 1vh;
-    transition: font-size 0.3s ease;
-}
-
-header.shrink h1 {
-    font-size: 1.5vw; /* Shrink the title size on scroll */
+    transition: font-size 0.3s ease-in-out;
 }
 
 /* Navigation */
@@ -71,7 +63,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 2vw;
+    margin: 0 1vw;
 }
 
 nav ul li a {
@@ -79,8 +71,8 @@ nav ul li a {
     text-decoration: none;
     font-weight: 400;
     padding: 1vh 1.5vw;
-    font-size: 1.2vw;
-    transition: color 0.3s ease, border-bottom 0.3s ease, font-size 0.3s ease;
+    font-size: 1.2vw; /* Shrinked link font size */
+    transition: color 0.3s ease, border-bottom 0.3s ease;
     border-bottom: 2px solid transparent;
 }
 
@@ -89,8 +81,82 @@ nav ul li a:hover {
     border-bottom: 2px solid #888;
 }
 
-header.shrink nav ul li a {
-    font-size: 1vw; /* Shrinks nav links font size */
+/* Project Overview Section Styling */
+.project-overview {
+    padding: 8vh 2vw;
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+}
+
+.project-overview .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-overview h2 {
+    font-size: 3vw;
+    font-weight: 600;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+    color: #00ff99; /* Add some color to the heading */
+}
+
+.project-description {
+    font-size: 1.5vw;
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 3vh;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-description .highlight {
+    color: #00ff99; /* Highlight important text */
+    font-weight: bold;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1vh 3vw;
+    color: #000;
+    background-color: #00ff99;
+    border-radius: 25px;
+    font-size: 1.5vw;
+    margin: 20px 0;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #00cc7a;
+}
+
+/* Project Details */
+.project-details {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 4vh;
+}
+
+.project-details .detail-item {
+    flex: 1;
+    max-width: 250px;
+    text-align: center;
+}
+
+.project-details h3 {
+    font-size: 2vw;
+    margin-bottom: 1vh;
+    color: #00ff99; /* Same color as highlight */
+}
+
+.project-details p {
+    font-size: 1.5vw;
+    color: #fff;
 }
 
 /* Section */
@@ -99,17 +165,17 @@ section {
     background-color: #000;
     color: #fff;
     border-bottom: 1px solid #333;
-    margin-top: 10vh; /* Push content below the fixed header */
+    margin-top: 12vh; /* Push content below the fixed header */
 }
 
 section h2 {
-    font-size: 3vw;
+    font-size: 2.5vw; /* Adjusted font-size for larger screens */
     font-weight: 400;
     margin-bottom: 20px;
 }
 
 section p {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     line-height: 1.8;
 }
 
@@ -186,6 +252,64 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    header h1 {
+        font-size: 1.5vw;
+    }
+
+    nav ul li a {
+        font-size: 1.4vw;
+    }
+
+    section h2 {
+        font-size: 2.2vw;
+    }
+
+    section p {
+        font-size: 1.1vw;
+    }
+
+    .content-wrapper {
+        padding: 20px;
+        height: auto;
+        flex-direction: column;
+    }
+
+    #cad-viewer {
+        width: 80%;
+        height: 40vh;
+        margin: 20px 0;
+    }
+
+    .text-content {
+        width: 90%;
+        text-align: center;
+        opacity: 1;
+        transform: none;
+    }
+
+    #text1 {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    #text2 {
+        position: static;
+        margin-top: 20px;
+    }
+
+    .text-content.hidden {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    .text-content.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.8em;
