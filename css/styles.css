@@ -308,28 +308,27 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
-}
-/* Mobile Adjustments */
+}/* Mobile Adjustments */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2.2em; /* Increase header font size */
+        font-size: 2.5em; /* Slightly larger header text */
     }
 
     nav ul li {
-        margin: 0 15px; /* Increase spacing between nav items */
+        margin: 0 12px; /* Increase spacing between nav items */
     }
 
     section {
-        padding: 5vh 25px; /* Increase padding for sections */
+        padding: 5vh 20px; /* Adjust padding for sections */
     }
 
     section h2 {
-        font-size: 2.2em; /* Increase section heading size */
-        margin-bottom: 20px; /* Add margin below heading */
+        font-size: 2.4em; /* Larger section heading size */
+        margin-bottom: 15px; /* Add margin below heading */
     }
 
     section p {
-        font-size: 1.5em; /* Increase paragraph font size */
+        font-size: 1.3em; /* Increase paragraph font size */
         line-height: 1.8em; /* Improve readability */
     }
 
@@ -341,7 +340,7 @@ footer {
 
     #cad-viewer {
         width: 100%;
-        height: 60vh; /* Increase viewer height */
+        height: 55vh; /* Increase viewer height */
         margin: 25px 0; /* Increase margin */
     }
 
@@ -354,16 +353,16 @@ footer {
 
     #text1 {
         position: static;
-        margin-bottom: 30px; /* Increase spacing between content */
+        margin-bottom: 25px; /* Increase spacing between content */
         padding: 25px;
-        font-size: 1.4em; /* Increase font size */
+        font-size: 1.6em; /* Increase font size */
     }
 
     #text2 {
         position: static;
-        margin-top: 30px; /* Increase spacing between content */
+        margin-top: 25px; /* Increase spacing between content */
         padding: 25px;
-        font-size: 1.4em; /* Increase font size */
+        font-size: 1.6em; /* Increase font size */
     }
 
     .text-content.hidden {
@@ -377,11 +376,16 @@ footer {
     }
 
     .project-details h3 {
-        font-size: 7vw; /* Further increase for better readability */
+        font-size: 5vw; /* Normalize project detail heading size */
         white-space: normal; /* Allows text to wrap if needed */
     }
 
     .project-details p {
-        font-size: 5vw; /* Larger paragraph font for mobile */
+        font-size: 4vw; /* Larger paragraph font for mobile */
+    }
+
+    .button {
+        font-size: 1.6em; /* Increase button text size */
+        padding: 15px 30px; /* Adjust button padding */
     }
 }
