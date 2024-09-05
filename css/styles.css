@@ -194,6 +194,27 @@ section p {
     line-height: 1.8;
 }
 
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1); /* Single subtle divider */
+    margin: 40px 0;
+}
+
+.section-divider-gradient {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0)); /* Gradient divider */
+    margin: 40px 0;
+}
+
+/* Ensure no double border or extra line */
+.content-wrapper, #cad-viewer {
+    border-bottom: none;
+    margin-bottom: 0;
+}   
+
+
 /* Flexbox layout for PC */
 .content-wrapper {
     position: relative;
@@ -209,8 +230,8 @@ section p {
     height: 50vh;
     background-color: #000;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border: none; /* Ensure no extra borders */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Shadow without border */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -256,6 +277,77 @@ section p {
     opacity: 0;
     transform: translateY(50px);
 }
+
+/* Technical Specifications Section */
+#specifications {
+    padding: 6vh 2vw;
+    color: #ffffff;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    margin-top: 12vh; /* Push content below the fixed header */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 255, 153, 0.1); /* Soft glow effect */
+}
+
+#specifications h2 {
+    font-size: 2.5vw;
+    font-weight: 700;
+    margin-bottom: 3vh;
+    color: #00ff99; /* Highlight heading */
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+#specifications p {
+    font-size: 1.2vw;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 3vh;
+    text-align: center; /* Centering the intro text */
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#specifications ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#specifications li {
+    font-size: 1.1vw;
+    color: #fff;
+    margin-bottom: 1.5vh;
+    line-height: 1.8;
+    display: flex;
+    align-items: center;
+}
+
+#specifications li::before {
+    content: "•"; /* Custom bullet point */
+    color: #00ff99;
+    font-size: 1.5vw;
+    margin-right: 10px;
+}
+
+#specifications ul li ul {
+    margin-top: 1vh;
+    padding-left: 2vw;
+}
+
+#specifications ul li ul li {
+    font-size: 1vw;
+    color: #b3b3b3; /* Softer color for sub-items */
+    margin-bottom: 1vh;
+}
+
+#specifications ul li ul li::before {
+    content: "○"; /* Custom bullet for sub-items */
+    color: #00ff99;
+    font-size: 1.2vw;
+    margin-right: 8px;
+}
+
 
 /* Footer */
 footer {
