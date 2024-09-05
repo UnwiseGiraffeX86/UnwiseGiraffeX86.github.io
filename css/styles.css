@@ -113,21 +113,35 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 1vh 2.5vw;
-    color: #000;
-    background-color: #00ff99;
-    border-radius: 25px;
-    font-size: 1.2vw; /* Slightly smaller button text */
-    margin: 20px 0;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+/* Glow effect for the "Learn More" button */
+/* Maintain original button style with glow effect */
+.learn-more-button {
+    background-color: transparent; /* Transparent background */
+    color: #00ff99; /* Green text color */
+    font-size: 1.6em;
+    padding: 15px 30px;
+    border: 2px solid #00ff99; /* Border matches text color */
+    border-radius: 50px; /* Keep rounded button */
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none; /* No underline */
+    transition: box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-.cta-button:hover {
-    background-color: #00cc7a;
+.learn-more-button:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.7), 0 0 40px rgba(0, 255, 153, 0.5); /* Glow effect */
+    color: #fff; /* Change text color to white on hover */
+    border-color: #fff; /* Change border color to white on hover */
 }
+
+/* Optional: For keyboard focus users */
+.learn-more-button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.7), 0 0 40px rgba(0, 255, 153, 0.5); /* Glow effect on focus */
+    color: #fff; /* Change text color to white on focus */
+    border-color: #fff; /* Change border color to white on focus */
+}
+
 
 /* Project Details */
 .project-details {
