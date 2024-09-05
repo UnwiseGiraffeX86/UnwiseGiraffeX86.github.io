@@ -357,10 +357,6 @@ footer {
         font-size: 1.3em; /* Increase paragraph font size */
         line-height: 1.8em;
     }
-    .project-overview h2 {
-        font-size: 1.4em; /* Increase the project description font size */
-        line-height: 1.8em;
-    }
 
     .project-description {
         font-size: 1.4em; /* Increase the project description font size */
