@@ -73,34 +73,41 @@
         <p>
             The Project RACCOON satellite is equipped with an array of advanced sensors and technologies, designed to perform precise environmental monitoring and data collection. These cutting-edge components allow the satellite to capture critical atmospheric data, high-resolution imagery, and thermal information, while also employing AI-driven analysis to detect anomalies in real-time.
         </p>
-        <ul>
-            <li><strong>Microcontroller</strong>: Powered by the <em>ESP32-S3</em>, enabling efficient data processing and real-time anomaly detection through machine learning algorithms.</li>
-            <li><strong>Atmospheric Monitoring</strong>:
+    
+        <div class="specs-grid">
+            <div class="spec-item">
+                <h3>Microcontroller</h3>
+                <p>Powered by the <em>ESP32-S3</em>, enabling efficient data processing and real-time anomaly detection through machine learning algorithms.</p>
+            </div>
+    
+            <div class="spec-item">
+                <h3>Atmospheric Monitoring</h3>
                 <ul>
-                    <li><em>BME680 Sensor</em>: Measures atmospheric temperature, barometric pressure, humidity, air quality index (AQI), and volatile organic compounds (VOC).</li>
+                    <li><em>BME680 Sensor</em>: Measures atmospheric temperature, barometric pressure, humidity, AQI, and VOC.</li>
                     <li><em>ICM-20600 IMU</em>: Captures acceleration data on three axes for precise movement and orientation tracking.</li>
-                    <li><em>SGP41-D-R4 Sensor</em>: Monitors nitrogen oxides (NOx) and carbon monoxide (CO) levels.</li>
-                    <li><em>GUVA S12SD Sensor</em>: Provides accurate ultraviolet (UV) light intensity measurements.</li>
+                    <li><em>SGP41-D-R4 Sensor</em>: Monitors NOx and CO levels.</li>
+                    <li><em>GUVA S12SD Sensor</em>: Provides accurate UV light intensity measurements.</li>
                 </ul>
-            </li>
-            <li><strong>Imaging Technology</strong>:
+            </div>
+    
+            <div class="spec-item">
+                <h3>Imaging Technology</h3>
                 <ul>
                     <li><em>OV2640 Camera</em>: Captures high-resolution visual imagery for detailed Earth observation.</li>
                     <li><em>AMG8833 Thermal Camera</em>: Adds thermal imaging capabilities, allowing for temperature-based environmental insights.</li>
                 </ul>
-            </li>
-            <li><strong>Navigation</strong>:
+            </div>
+    
+            <div class="spec-item">
+                <h3>Communication & Navigation</h3>
                 <ul>
                     <li><em>GY NEO6MV2 GPS</em>: Ensures accurate satellite positioning and navigation data.</li>
+                    <li><em>RFM96 LoRa Module</em>: Ensures long-range data transmission between the satellite and ground stations.</li>
                 </ul>
-            </li>
-            <li><strong>Communication</strong>:
-                <ul>
-                    <li><em>RFM96 LoRa Module</em>: Ensures long-range data transmission, enabling effective communication between the satellite and ground stations.</li>
-                </ul>
-            </li>
-        </ul>
+            </div>
+        </div>
     </section>
+    
     
 
     <section id="about">

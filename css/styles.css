@@ -142,7 +142,6 @@ nav ul li a:hover {
     border-color: #fff; /* Change border color to white on focus */
 }
 
-
 /* Project Details */
 .project-details {
     display: flex;
@@ -214,7 +213,6 @@ section p {
     margin-bottom: 0;
 }   
 
-
 /* Flexbox layout for PC */
 .content-wrapper {
     position: relative;
@@ -236,46 +234,6 @@ section p {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-}
-
-.text-content {
-    opacity: 0;
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-    position: absolute;
-    padding: 2vw;
-}
-
-/* First Text (Top-Left) */
-#text1 {
-    top: 5vh;
-    left: 2vw;
-}
-
-/* Second Text (Bottom-Right) */
-#text2 {
-    bottom: 5vh;
-    right: 2vw;
-}
-
-.text-content h2 {
-    font-size: 1.5vw; /* Smaller text content headings */
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.text-content p {
-    font-size: 1vw; /* Smaller paragraph text */
-    color: #ccc;
-}
-
-.text-content.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.text-content.hidden {
-    opacity: 0;
-    transform: translateY(50px);
 }
 
 /* Technical Specifications Section */
@@ -309,45 +267,68 @@ section p {
     margin-right: auto;
 }
 
-#specifications ul {
+/* Grid Layout for Specifications */
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.spec-item {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 255, 153, 0.1);
+}
+
+.spec-item h3 {
+    font-size: 1.8vw;
+    margin-bottom: 15px;
+    color: #00ff99;
+}
+
+.spec-item p, .spec-item ul {
+    font-size: 1.1vw;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.spec-item ul {
     list-style-type: none;
     padding-left: 0;
 }
 
-#specifications li {
-    font-size: 1.1vw;
-    color: #fff;
-    margin-bottom: 1.5vh;
-    line-height: 1.8;
-    display: flex;
-    align-items: center;
+.spec-item ul li {
+    margin-bottom: 10px;
 }
 
-#specifications li::before {
-    content: "•"; /* Custom bullet point */
+.spec-item ul li::before {
+    content: "○";
     color: #00ff99;
-    font-size: 1.5vw;
     margin-right: 10px;
+    font-size: 1.5vw;
 }
 
-#specifications ul li ul {
-    margin-top: 1vh;
-    padding-left: 2vw;
-}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
 
-#specifications ul li ul li {
-    font-size: 1vw;
-    color: #b3b3b3; /* Softer color for sub-items */
-    margin-bottom: 1vh;
-}
+    #specifications h2 {
+        font-size: 6vw;
+    }
 
-#specifications ul li ul li::before {
-    content: "○"; /* Custom bullet for sub-items */
-    color: #00ff99;
-    font-size: 1.2vw;
-    margin-right: 8px;
-}
+    .spec-item h3 {
+        font-size: 4vw;
+    }
 
+    .spec-item p, .spec-item ul {
+        font-size: 3vw;
+    }
+}
 
 /* Footer */
 footer {
@@ -356,125 +337,4 @@ footer {
     text-align: center;
     padding: 3vh;
     font-size: 1.2vw; /* Smaller footer text */
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    header h1 {
-        font-size: 1.5vw;
-    }
-
-    nav ul li a {
-        font-size: 1.4vw;
-    }
-
-    section h2 {
-        font-size: 2vw;
-    }
-
-    section p {
-        font-size: 1vw;
-    }
-
-    .content-wrapper {
-        padding: 20px;
-        height: auto;
-        flex-direction: column;
-    }
-
-    #cad-viewer {
-        width: 80%;
-        height: 40vh;
-        margin: 20px 0;
-    }
-
-    .text-content {
-        width: 90%;
-        text-align: center;
-        opacity: 1;
-        transform: none;
-    }
-
-    #text1 {
-        position: static;
-        margin-bottom: 20px;
-    }
-
-    #text2 {
-        position: static;
-        margin-top: 20px;
-    }
-
-    .text-content.hidden {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    .text-content.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5em; /* Larger header text */
-    }
-
-    nav ul {
-        display: flex; /* Keep the navigation visible */
-        justify-content: center;
-    }
-
-    nav ul li {
-        margin: 0 15px; /* Increase spacing between navigation items */
-    }
-
-    nav ul li a {
-        font-size: 1.3em; /* Increase font size for nav items */
-        padding: 10px 15px;
-    }
-
-    section {
-        padding: 5vh 20px;
-    }
-
-    section h2 {
-        font-size: 2.5em; /* Larger section heading size */
-        margin-bottom: 15px;
-    }
-
-    section p {
-        font-size: 1.3em; /* Increase paragraph font size */
-        line-height: 1.8em;
-    }
-
-    .project-description {
-        font-size: 1.4em; /* Increase the project description font size */
-        line-height: 1.8em;
-    }
-
-    .learn-more-button {
-        font-size: 1.7em; /* Larger button text */
-        padding: 15px 30px;
-    }
-
-    .project-details h3 {
-        font-size: 4.5vw; /* Adjust the heading size for project details */
-    }
-
-    .project-details p {
-        font-size: 3.5vw; /* Adjust the font size for project details */
-    }
-
-    /* Text content for other sections */
-    .text-content h2 {
-        font-size: 1.6em; /* Adjust font size for other headings */
-        margin-bottom: 10px;
-    }
-
-    .text-content p {
-        font-size: 1.2em; /* Adjust paragraph text */
-    }
 }
