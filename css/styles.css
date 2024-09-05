@@ -327,68 +327,62 @@ footer {
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2.2em; /* Adjusted header size */
+        font-size: 2.5em; /* Larger header text */
+    }
+
+    nav ul {
+        display: flex; /* Keep the navigation visible */
+        justify-content: center;
     }
 
     nav ul li {
-        margin: 0 12px; /* Adjust spacing between nav items */
+        margin: 0 15px; /* Increase spacing between navigation items */
+    }
+
+    nav ul li a {
+        font-size: 1.3em; /* Increase font size for nav items */
+        padding: 10px 15px;
     }
 
     section {
-        padding: 5vh 20px; /* Adjust padding for sections */
+        padding: 5vh 20px;
     }
 
     section h2 {
-        font-size: 2.2em; /* Increase section heading size */
-        margin-bottom: 10px;
+        font-size: 2.5em; /* Larger section heading size */
+        margin-bottom: 15px;
     }
 
     section p {
-        font-size: 1.2em; /* Increase paragraph font size */
-        line-height: 1.6em;
+        font-size: 1.3em; /* Increase paragraph font size */
+        line-height: 1.8em;
     }
 
     .project-description {
-        font-size: 1.2em; /* Ensure project description is legible */
-        line-height: 1.7em;
-        margin-bottom: 3vh;
+        font-size: 1.4em; /* Increase the project description font size */
+        line-height: 1.8em;
     }
 
     .learn-more-button {
-        font-size: 1.4em; /* Increase button text size */
-        padding: 12px 25px;
+        font-size: 1.7em; /* Larger button text */
+        padding: 15px 30px;
     }
 
     .project-details h3 {
-        font-size: 4.5vw; /* Adjust detail headings */
-        white-space: normal; /* Wrap if necessary */
+        font-size: 4.5vw; /* Adjust the heading size for project details */
     }
 
     .project-details p {
-        font-size: 3.5vw; /* Adjust detail paragraphs */
+        font-size: 3.5vw; /* Adjust the font size for project details */
     }
 
-    .content-wrapper {
-        padding: 20px;
-        height: auto;
-        flex-direction: column;
-    }
-
-    #cad-viewer {
-        width: 100%;
-        height: 55vh; /* Increase viewer height */
-        margin: 25px 0;
-    }
-
+    /* Text content for other sections */
     .text-content h2 {
-        font-size: 1.6em; /* Larger text for mobile */
+        font-size: 1.6em; /* Adjust font size for other headings */
+        margin-bottom: 10px;
     }
 
     .text-content p {
-        font-size: 1.2em;
-    }
-
-    .text-content {
-        padding: 15px;
+        font-size: 1.2em; /* Adjust paragraph text */
     }
 }
