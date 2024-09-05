@@ -28,7 +28,7 @@ body {
 header {
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     color: #fff;
-    padding: 1vh 0; /* Shrinked padding */
+    padding: 1vh 0; /* Shrunk padding */
     text-align: center;
     position: fixed;
     top: 0;
@@ -41,7 +41,7 @@ header {
 
 header h1 {
     font-weight: 300;
-    font-size: 1.8vw; /* Smaller title size */
+    font-size: 1.8vw; /* Scalable title size */
     letter-spacing: 0.5px;
     margin-top: 1vh;
     transition: font-size 0.3s ease-in-out;
@@ -71,7 +71,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: 400;
     padding: 1vh 1.5vw;
-    font-size: 1vw; /* Smaller link font size */
+    font-size: 1vw; /* Scalable link font size */
     transition: color 0.3s ease, border-bottom 0.3s ease;
     border-bottom: 2px solid transparent;
 }
@@ -91,7 +91,7 @@ nav ul li a:hover {
 }
 
 .project-overview h2 {
-    font-size: 2.5vw; /* Smaller heading */
+    font-size: 2.5vw; /* Scalable heading */
     font-weight: 600;
     margin-bottom: 30px;
     letter-spacing: 0.5px;
@@ -99,7 +99,7 @@ nav ul li a:hover {
 }
 
 .project-description {
-    font-size: 1.2vw; /* Smaller body text */
+    font-size: 1.2vw; /* Scalable body text */
     line-height: 1.8;
     color: #ddd;
     margin-bottom: 3vh;
@@ -114,32 +114,23 @@ nav ul li a:hover {
 }
 
 /* Glow effect for the "Learn More" button */
-/* Maintain original button style with glow effect */
 .learn-more-button {
-    background-color: transparent; /* Transparent background */
-    color: #00ff99; /* Green text color */
+    background-color: transparent;
+    color: #00ff99;
     font-size: 1.6em;
     padding: 15px 30px;
-    border: 2px solid #00ff99; /* Border matches text color */
-    border-radius: 50px; /* Keep rounded button */
+    border: 2px solid #00ff99;
+    border-radius: 50px;
     text-align: center;
     cursor: pointer;
-    text-decoration: none; /* No underline */
+    text-decoration: none;
     transition: box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .learn-more-button:hover {
-    box-shadow: 0 0 20px rgba(0, 255, 153, 0.7), 0 0 40px rgba(0, 255, 153, 0.5); /* Glow effect */
-    color: #fff; /* Change text color to white on hover */
-    border-color: #fff; /* Change border color to white on hover */
-}
-
-/* Optional: For keyboard focus users */
-.learn-more-button:focus {
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 20px rgba(0, 255, 153, 0.7), 0 0 40px rgba(0, 255, 153, 0.5); /* Glow effect on focus */
-    color: #fff; /* Change text color to white on focus */
-    border-color: #fff; /* Change border color to white on focus */
+    box-shadow: 0 0 20px rgba(0, 255, 153, 0.7), 0 0 40px rgba(0, 255, 153, 0.5);
+    color: #fff;
+    border-color: #fff;
 }
 
 /* Project Details */
@@ -148,7 +139,7 @@ nav ul li a:hover {
     justify-content: center;
     gap: 50px;
     margin-top: 4vh;
-    flex-wrap: nowrap; /* Ensures the items stay on one line */
+    flex-wrap: wrap; /* Now wraps on smaller screens */
 }
 
 .project-details .detail-item {
@@ -157,13 +148,13 @@ nav ul li a:hover {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically centers the content */
+    justify-content: center;
 }
 
 .project-details h3 {
-    font-size: 1.6vw; /* Adjusted size for better desktop display */
+    font-size: 1.6vw;
     margin-bottom: 1vh;
-    white-space: nowrap; /* Prevents breaking into two lines */
+    white-space: nowrap;
     color: #00ff99;
 }
 
@@ -173,47 +164,15 @@ nav ul li a:hover {
     margin-top: 0.5vh;
 }
 
-/* Section */
-section {
-    padding: 6vh 2vw;
-    background-color: #000;
-    color: #fff;
-    border-bottom: 1px solid #333;
-    margin-top: 12vh; /* Push content below the fixed header */
-}
-
-section h2 {
-    font-size: 2vw; /* Adjusted section headings */
-    font-weight: 400;
-    margin-bottom: 20px;
-}
-
-section p {
-    font-size: 1.1vw; /* Smaller paragraph text */
-    line-height: 1.8;
-}
-
+/* Section Divider */
 .section-divider {
     width: 100%;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.1); /* Single subtle divider */
+    background-color: rgba(255, 255, 255, 0.1);
     margin: 40px 0;
 }
 
-.section-divider-gradient {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0)); /* Gradient divider */
-    margin: 40px 0;
-}
-
-/* Ensure no double border or extra line */
-.content-wrapper, #cad-viewer {
-    border-bottom: none;
-    margin-bottom: 0;
-}   
-
-/* Flexbox layout for PC */
+/* Content Wrapper */
 .content-wrapper {
     position: relative;
     width: 100%;
@@ -221,6 +180,7 @@ section p {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; /* Responsive for smaller screens */
 }
 
 #cad-viewer {
@@ -228,12 +188,51 @@ section p {
     height: 50vh;
     background-color: #000;
     overflow: hidden;
-    border: none; /* Ensure no extra borders */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Shadow without border */
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+}
+
+/* Text content */
+.text-content {
+    opacity: 0;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    position: absolute;
+    padding: 2vw;
+}
+
+#text1 {
+    top: 5vh;
+    left: 2vw;
+}
+
+#text2 {
+    bottom: 5vh;
+    right: 2vw;
+}
+
+.text-content h2 {
+    font-size: 1.5vw;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.text-content p {
+    font-size: 1vw;
+    color: #ccc;
+}
+
+.text-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.text-content.hidden {
+    opacity: 0;
+    transform: translateY(50px);
 }
 
 /* Technical Specifications Section */
@@ -242,16 +241,16 @@ section p {
     color: #ffffff;
     text-align: left;
     border-bottom: 1px solid #333;
-    margin-top: 12vh; /* Push content below the fixed header */
+    margin-top: 12vh;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 255, 153, 0.1); /* Soft glow effect */
+    box-shadow: 0 2px 10px rgba(0, 255, 153, 0.1);
 }
 
 #specifications h2 {
     font-size: 2.5vw;
     font-weight: 700;
     margin-bottom: 3vh;
-    color: #00ff99; /* Highlight heading */
+    color: #00ff99;
     letter-spacing: 1px;
     text-align: center;
 }
@@ -261,38 +260,35 @@ section p {
     line-height: 1.8;
     color: #cccccc;
     margin-bottom: 3vh;
-    text-align: center; /* Centering the intro text */
+    text-align: center;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Grid Layout for Specifications */
 .specs-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-gap: 20px;
 }
 
 .spec-item {
-    background-color: #111;
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 255, 153, 0.1);
 }
 
 .spec-item h3 {
-    font-size: 1.8vw;
-    margin-bottom: 15px;
+    font-size: 1.6vw;
     color: #00ff99;
+    margin-bottom: 15px;
 }
 
-.spec-item p, .spec-item ul {
+.spec-item ul, .spec-item p {
     font-size: 1.1vw;
-    color: #ccc;
     line-height: 1.8;
+    color: #b3b3b3;
 }
 
 .spec-item ul {
@@ -300,34 +296,16 @@ section p {
     padding-left: 0;
 }
 
-.spec-item ul li {
+.spec-item li {
     margin-bottom: 10px;
+    color: #fff;
 }
 
-.spec-item ul li::before {
-    content: "○";
+.spec-item li::before {
+    content: "•";
     color: #00ff99;
-    margin-right: 10px;
     font-size: 1.5vw;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .specs-grid {
-        grid-template-columns: 1fr;
-    }
-
-    #specifications h2 {
-        font-size: 6vw;
-    }
-
-    .spec-item h3 {
-        font-size: 4vw;
-    }
-
-    .spec-item p, .spec-item ul {
-        font-size: 3vw;
-    }
+    margin-right: 10px;
 }
 
 /* Footer */
@@ -336,5 +314,134 @@ footer {
     color: #fff;
     text-align: center;
     padding: 3vh;
-    font-size: 1.2vw; /* Smaller footer text */
+    font-size: 1.2vw;
+    border-top: 1px solid #333; /* Add subtle border */
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.2vw; /* Ensure text is scalable */
+}
+
+footer a {
+    color: #00ff99;
+    text-decoration: none;
+    font-size: 1.1vw;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    header h1 {
+        font-size: 1.5vw;
+    }
+
+    nav ul li a {
+        font-size: 1.4vw;
+    }
+
+    section h2 {
+        font-size: 2vw;
+    }
+
+    section p {
+        font-size: 1vw;
+    }
+
+    .content-wrapper {
+        padding: 20px;
+        height: auto;
+        flex-direction: column;
+    }
+
+    #cad-viewer {
+        width: 80%;
+        height: 40vh;
+        margin: 20px 0;
+    }
+
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .text-content {
+        width: 90%;
+        text-align: center;
+        opacity: 1;
+        transform: none;
+    }
+
+    #text1, #text2 {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .text-content.hidden {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    .text-content.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    nav ul li a {
+        font-size: 1.3em;
+        padding: 10px 15px;
+    }
+
+    section {
+        padding: 5vh 20px;
+    }
+
+    section h2 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+    }
+
+    section p {
+        font-size: 1.3em;
+        line-height: 1.8em;
+    }
+
+    .project-description {
+        font-size: 1.4em;
+        line-height: 1.8em;
+    }
+
+    .learn-more-button {
+        font-size: 1.7em;
+        padding: 15px 30px;
+    }
+
+    .project-details h3 {
+        font-size: 4.5vw;
+    }
+
+    .project-details p {
+        font-size: 3.5vw;
+    }
+
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .spec-item {
+        font-size: 1.4em;
+    }
+
+    footer p {
+        font-size: 1.5em;
+    }
 }
