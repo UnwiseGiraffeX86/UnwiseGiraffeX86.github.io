@@ -26,22 +26,22 @@ body {
 
 /* Header */
 header {
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
-    padding: 1vh 0; /* Shrinked padding */
+    padding: 1vh 0;
     text-align: center;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px); /* Glass effect */
+    backdrop-filter: blur(10px);
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 header h1 {
     font-weight: 300;
-    font-size: 1.8vw; /* Smaller title size */
+    font-size: 1.8vw; /* Smaller desktop title size */
     letter-spacing: 0.5px;
     margin-top: 1vh;
     transition: font-size 0.3s ease-in-out;
@@ -71,7 +71,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: 400;
     padding: 1vh 1.5vw;
-    font-size: 1vw; /* Smaller link font size */
+    font-size: 1.2vw; /* Slightly larger link font size */
     transition: color 0.3s ease, border-bottom 0.3s ease;
     border-bottom: 2px solid transparent;
 }
@@ -91,15 +91,15 @@ nav ul li a:hover {
 }
 
 .project-overview h2 {
-    font-size: 2.5vw; /* Smaller heading */
+    font-size: 2.2vw;
     font-weight: 600;
     margin-bottom: 30px;
     letter-spacing: 0.5px;
-    color: #00ff99; /* Add some color to the heading */
+    color: #00ff99;
 }
 
 .project-description {
-    font-size: 1.2vw; /* Smaller body text */
+    font-size: 1.3vw; /* Slightly larger body text */
     line-height: 1.8;
     color: #ddd;
     margin-bottom: 3vh;
@@ -109,7 +109,7 @@ nav ul li a:hover {
 }
 
 .project-description .highlight {
-    color: #00ff99; /* Highlight important text */
+    color: #00ff99;
     font-weight: bold;
 }
 
@@ -119,7 +119,7 @@ nav ul li a:hover {
     color: #000;
     background-color: #00ff99;
     border-radius: 25px;
-    font-size: 1.2vw; /* Slightly smaller button text */
+    font-size: 1.2vw;
     margin: 20px 0;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -135,7 +135,7 @@ nav ul li a:hover {
     justify-content: center;
     gap: 50px;
     margin-top: 4vh;
-    flex-wrap: nowrap; /* Ensures the items stay on one line */
+    flex-wrap: nowrap;
 }
 
 .project-details .detail-item {
@@ -144,18 +144,18 @@ nav ul li a:hover {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically centers the content */
+    justify-content: center;
 }
 
 .project-details h3 {
-    font-size: 1.6vw; /* Adjusted size for better desktop display */
+    font-size: 1.8vw;
     margin-bottom: 1vh;
-    white-space: nowrap; /* Prevents breaking into two lines */
+    white-space: nowrap;
     color: #00ff99;
 }
 
 .project-details p {
-    font-size: 1.2vw;
+    font-size: 1.3vw;
     color: #fff;
     margin-top: 0.5vh;
 }
@@ -166,17 +166,17 @@ section {
     background-color: #000;
     color: #fff;
     border-bottom: 1px solid #333;
-    margin-top: 12vh; /* Push content below the fixed header */
+    margin-top: 12vh;
 }
 
 section h2 {
-    font-size: 2vw; /* Adjusted section headings */
+    font-size: 2vw;
     font-weight: 400;
     margin-bottom: 20px;
 }
 
 section p {
-    font-size: 1.1vw; /* Smaller paragraph text */
+    font-size: 1.1vw;
     line-height: 1.8;
 }
 
@@ -214,22 +214,24 @@ section p {
 #text1 {
     top: 5vh;
     left: 2vw;
+    font-size: 1.5vw; /* Adjusted for desktop */
 }
 
 /* Second Text (Bottom-Right) */
 #text2 {
     bottom: 5vh;
     right: 2vw;
+    font-size: 1.5vw; /* Adjusted for desktop */
 }
 
 .text-content h2 {
-    font-size: 1.5vw; /* Smaller text content headings */
+    font-size: 1.5vw;
     font-weight: bold;
     margin-bottom: 15px;
 }
 
 .text-content p {
-    font-size: 1vw; /* Smaller paragraph text */
+    font-size: 1.2vw;
     color: #ccc;
 }
 
@@ -249,17 +251,17 @@ footer {
     color: #fff;
     text-align: center;
     padding: 3vh;
-    font-size: 1.2vw; /* Smaller footer text */
+    font-size: 1.2vw;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
     header h1 {
-        font-size: 1.5vw;
+        font-size: 1.6vw;
     }
 
     nav ul li a {
-        font-size: 1.4vw;
+        font-size: 1.3vw;
     }
 
     section h2 {
@@ -267,7 +269,7 @@ footer {
     }
 
     section p {
-        font-size: 1vw;
+        font-size: 1.1vw;
     }
 
     .content-wrapper {
@@ -289,14 +291,8 @@ footer {
         transform: none;
     }
 
-    #text1 {
-        position: static;
-        margin-bottom: 20px;
-    }
-
-    #text2 {
-        position: static;
-        margin-top: 20px;
+    #text1, #text2 {
+        font-size: 1.3vw; /* Reduced for medium screens */
     }
 
     .text-content.hidden {
@@ -308,28 +304,29 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
-}/* Mobile Adjustments */
+}
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2.5em; /* Slightly larger header text */
+        font-size: 2.5em;
     }
 
-    nav ul li {
-        margin: 0 12px; /* Increase spacing between nav items */
+    nav ul li a {
+        font-size: 1.8em;
     }
 
     section {
-        padding: 5vh 20px; /* Adjust padding for sections */
+        padding: 5vh 20px;
     }
 
     section h2 {
-        font-size: 2.4em; /* Larger section heading size */
-        margin-bottom: 15px; /* Add margin below heading */
+        font-size: 2.4em;
     }
 
     section p {
-        font-size: 1.3em; /* Increase paragraph font size */
-        line-height: 1.8em; /* Improve readability */
+        font-size: 1.5em;
+        line-height: 1.8em;
     }
 
     .content-wrapper {
@@ -340,52 +337,34 @@ footer {
 
     #cad-viewer {
         width: 100%;
-        height: 55vh; /* Increase viewer height */
-        margin: 25px 0; /* Increase margin */
+        height: 55vh;
+        margin: 25px 0;
     }
 
     .text-content {
+        font-size: 1.8em;
         width: 100%;
         text-align: center;
         opacity: 1;
         transform: none;
     }
 
-    #text1 {
+    #text1, #text2 {
         position: static;
-        margin-bottom: 25px; /* Increase spacing between content */
-        padding: 25px;
-        font-size: 1.6em; /* Increase font size */
-    }
-
-    #text2 {
-        position: static;
-        margin-top: 25px; /* Increase spacing between content */
-        padding: 25px;
-        font-size: 1.6em; /* Increase font size */
-    }
-
-    .text-content.hidden {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    .text-content.visible {
-        opacity: 1;
-        transform: translateY(0);
+        margin: 25px;
     }
 
     .project-details h3 {
-        font-size: 5vw; /* Normalize project detail heading size */
-        white-space: normal; /* Allows text to wrap if needed */
+        font-size: 5vw;
+        white-space: normal;
     }
 
     .project-details p {
-        font-size: 4vw; /* Larger paragraph font for mobile */
+        font-size: 4vw;
     }
 
     .button {
-        font-size: 1.6em; /* Increase button text size */
-        padding: 15px 30px; /* Adjust button padding */
+        font-size: 1.6em;
+        padding: 15px 30px;
     }
 }
