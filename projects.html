@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stefan's Projects</title>
+    <link rel="stylesheet" href="CSS/general.css">
+    <link rel="stylesheet" href="CSS/nav.css">
+    <link rel="stylesheet" href="CSS/section.css">
+    <link rel="stylesheet" href="CSS/cards.css">
+    <link rel="stylesheet" href="CSS/tags.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/dark_mode.css">
+    <link rel="stylesheet" href="CSS/mobile.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SCelestium Labs</div>
+            <ul class="nav-links">
+                <li><a href="main.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="projects" class="section">
+            <h1>Ongoing & Finished Projects</h1>
+            <div class="grid">
+                <div class="item">
+                    <img src="project1.jpg" alt="Project 1" class="project-image">
+                    <div class="content">
+                        <h3>Project 1</h3>
+                        <div class="tag-container">
+                            <span class="tag checkmark">
+                                <span class="tag-icon"><img src="assets/checkmark.png" alt="Finished" class="tag-icon-img"></span> Finished
+                            </span>
+                        </div>
+                        <p>Detailed description of Project 1.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="project2.jpg" alt="Project 2" class="project-image">
+                    <div class="content">
+                        <h3>Project 2</h3>
+                        <div class="tag-container">
+                            <span class="tag work-in-progress">
+                                <span class="tag-icon"><img src="assets/work-in-progress.png" alt="Work in Progress" class="tag-icon-img"></span> Work in Progress
+                            </span>
+                        </div>
+                        <p>Detailed description of Project 2.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="project3.jpg" alt="Project 3" class="project-image">
+                    <div class="content">
+                        <h3>Project 3</h3>
+                        <div class="tag-container">
+                            <span class="tag checkmark">
+                                <span class="tag-icon"><img src="assets/checkmark.png" alt="Finished" class="tag-icon-img"></span> Finished
+                            </span>
+                        </div>
+                        <p>Detailed description of Project 3.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="project4.jpg" alt="Project 4" class="project-image">
+                    <div class="content">
+                        <h3>Project 4</h3>
+                        <div class="tag-container">
+                            <span class="tag work-in-progress">
+                                <span class="tag-icon"><img src="assets/work-in-progress.png" alt="Work in Progress" class="tag-icon-img"></span> Work in Progress
+                            </span>
+                        </div>
+                        <p>Detailed description of Project 4.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="project5.jpg" alt="Project 5" class="project-image">
+                    <div class="content">
+                        <h3>Project 5</h3>
+                        <div class="tag-container">
+                            <span class="tag checkmark">
+                                <span class="tag-icon"><img src="assets/checkmark.png" alt="Finished" class="tag-icon-img"></span> Finished
+                            </span>
+                        </div>
+                        <p>Detailed description of Project 5.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="project6.jpg" alt="Project 6" class="project-image">
+                    <div class="content">
+                        <h3>Project 6</h3>
+                        <div class="tag-container">
+                            <span class="tag canceled">
+                                <span class="tag-icon"><img src="assets/canceled.png" alt="Canceled" class="tag-icon-img"></span> Canceled
+                            </span>
+                        </div>
+                        <p>Detailed description of Project 6.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="contact">
+        <p>Get in touch: <a href="mailto:your_email@example.com">your_email@example.com</a></p>
+    </footer>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userPreference = localStorage.getItem('theme');
+            if (userPreference) {
+                document.documentElement.setAttribute('data-theme', userPreference);
+            }
+        });
+
+        function toggleDarkMode() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+    "blog": [
+        {
+            "title": "Post 1",
+            "imagePath": "assets/project1.jpg",
+            "description": "Detailed description of Project 1.",
+            "tag": "Finished",
+            "publishedDate": "2024-05-01"
+        },
+        {
+            "title": "Post 1",
+            "imagePath": "assets/project2.jpg",
+            "description": "Detailed description of Project 2.",
+            "tag": "Work in Progress",
+            "publishedDate": "2024-06-15"
+        },
+        {
+            "title": "Post 1",
+            "imagePath": "assets/project3.jpg",
+            "description": "Detailed description of Project 3.",
+            "tag": "Finished",
+            "publishedDate": "2024-07-10"
+        },
+        {
+            "title": "Post 1",
+            "imagePath": "assets/project4.jpg",
+            "description": "Detailed description of Project 4.",
+            "tag": "Work in Progress",
+            "publishedDate": "2024-08-01"
+        },
+        {
+            "title": "Post 1",
+            "imagePath": "assets/project5.jpg",
+            "description": "Detailed description of Project 5.",
+            "tag": "Finished",
+            "publishedDate": "2024-09-01"
+        },
+        {
+            "title": "Post 1",
+            "imagePath": "assets/project6.jpg",
+            "description": "Detailed description of Project 6.",
+            "tag": "Canceled",
+            "publishedDate": "2024-09-20"
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+.tag-container {
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.tag-icon {
+    margin-right: 0.5rem;
+}
+
+.tag-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.tag.checkmark {    
+    background-color: #28a745;
+    display: flex;
+    align-items: center;
+}
+
+.tag.work-in-progress {
+    background-color: #ffa500;
+    display: flex;
+    align-items: center;
+}
+
+.tag.canceled {
+    background-color: #dc3545;
+    display: flex;
+    align-items: center;
+}
+
+/* Icon Images */
+.tag.finished .tag-icon img {
+    content: url('assets/checkmark.png');
+}
+
+.tag.in-progress .tag-icon img {
+    content: url('assets/work-in-progress.png');
+}
+
+.tag.canceled .tag-icon img {
+    content: url('assets/canceled.png');
+}
