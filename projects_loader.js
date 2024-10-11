@@ -44,12 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 switch (item.tag) {
                     case 'Finished':
                         tagClass = 'checkmark';
+                        tagPath = 'UnwiseGiraffeX86.github.io/Assets/checkmark.png';
                         break;
                     case 'Work in Progress':
                         tagClass = 'work-in-progress';
+                        tagPath = 'UnwiseGiraffeX86.github.io/Assets/work-in-progress.png';
                         break;
                     case 'Canceled':
                         tagClass = 'canceled';
+                        tagPath = 'UnwiseGiraffeX86.github.io/Assets/canceled.png';
                         break;
                 }
 
@@ -59,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3>${item.title}</h3>
                         <div class="tag-container">
                             <span class="tag ${tagClass}">
-                                <span class="tag-icon"><img src="Assets/${tagClass}.png" alt="${item.tag}" class="tag-icon-img"></span> ${item.tag}
+                                <span class="tag-icon"><img src="${tagPath}" alt="${item.tag}" class="tag-icon-img"></span> ${item.tag}
                             </span>
                         </div>
                         <p>${item.description}</p>
