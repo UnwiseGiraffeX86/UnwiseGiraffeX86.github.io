@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
     ]).then(([projectsData, blogPostsData]) => {
-        loadItems(projectsData.projects, '.grid', 3);
-        loadItems(blogPostsData.blogPosts, '.item', 3);
+        loadItems(projectsData.projects, '#projects', 3);
+        loadItems(blogPostsData.blog, '#blog', 3);
     }).catch(error => {
         console.error('Error fetching data:', error);
-        document.querySelectorAll('.grid').forEach(grid => {
+        document.querySelectorAll('#projects, #blog').forEach(grid => {
             grid.innerHTML = '<p>Failed to load data. Please try again later.</p>';
         });
     });
@@ -38,45 +38,36 @@ document.addEventListener('DOMContentLoaded', () => {
             const itemElement = document.createElement('div');
             itemElement.classList.add('item');
 
-            if (containerSelector === '.grid') {
-                // Handle projects-specific rendering
-                let tagClass = '';
-                switch (item.tag) {
-                    case 'Finished':
-                        tagClass = 'checkmark';
-                        tagPath = 'UnwiseGiraffeX86.github.io/Assets/checkmark.png';
-                        break;
-                    case 'Work in Progress':
-                        tagClass = 'work-in-progress';
-                        tagPath = 'UnwiseGiraffeX86.github.io/Assets/work-in-progress.png';
-                        break;
-                    case 'Canceled':
-                        tagClass = 'canceled';
-                        tagPath = 'UnwiseGiraffeX86.github.io/Assets/canceled.png';
-                        break;
-                }
-
-                itemElement.innerHTML = `
-                    <img src="${item.imagePath}" alt="${item.title}" class="image">
-                    <div class="content">
-                        <h3>${item.title}</h3>
-                        <div class="tag-container">
-                            <span class="tag ${tagClass}">
-                                <span class="tag-icon"><img src="${tagPath}" alt="${item.tag}" class="tag-icon-img"></span> ${item.tag}
-                            </span>
-                        </div>
-                        <p>${item.description}</p>
-                        <p class="published-date">Published on: ${item.publishedDate}</p>
-                    </div>
-                `;
-            } else if (containerSelector === '.blog-posts') {
-                // Handle blog posts-specific rendering
-                itemElement.innerHTML = `
-                    <h3>${item.title}</h3>
-                    <p>${item.shortDescription}</p>
-                    <a href="${item.link}">Read more...</a>
-                `;
+            let tagClass = '';
+            let tagPath = '';
+            switch (item.tag) {
+                case 'Finished':
+                    tagClass = 'checkmark';
+                    tagPath = 'assets/checkmark.png';
+                    break;
+                case 'Work in Progress':
+                    tagClass = 'work-in-progress';
+                    tagPath = 'assets/work-in-progress.png';
+                    break;
+                case 'Canceled':
+                    tagClass = 'canceled';
+                    tagPath = 'assets/canceled.png';
+                    break;
             }
+
+            itemElement.innerHTML = `
+                <img src="${item.imagePath}" alt="${item.title}" class="image">
+                <div class="content">
+                    <h3>${item.title}</h3>
+                    <div class="tag-container">
+                        <span class="tag ${tagClass}">
+                            <span class="tag-icon"><img src="${tagPath}" alt="${item.tag}" class="tag-icon-img"></span> ${item.tag}
+                        </span>
+                    </div>
+                    <p>${item.description}</p>
+                    <p class="published-date">Published on: ${item.publishedDate}</p>
+                </div>
+            `;
 
             container.appendChild(itemElement);
         });
