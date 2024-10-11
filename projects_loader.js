@@ -43,15 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
             switch (item.tag) {
                 case 'Finished':
                     tagClass = 'checkmark';
-                    tagPath = 'assets/checkmark.png';
+                    tagPath = './assets/checkmark.png';
                     break;
                 case 'Work in Progress':
                     tagClass = 'work-in-progress';
-                    tagPath = 'assets/work-in-progress.png';
+                    tagPath = './assets/work-in-progress.png';
                     break;
                 case 'Canceled':
                     tagClass = 'canceled';
-                    tagPath = 'assets/canceled.png';
+                    tagPath = './assets/canceled.png';
                     break;
             }
 
