@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3>${item.title}</h3>
                         <div class="tag-container">
                             <span class="tag ${tagClass}">
-                                <span class="tag-icon"><img src="assets/${tagClass}.png" alt="${item.tag}" class="tag-icon-img"></span> ${item.tag}
+                                <span class="tag-icon"><img src="Assets/${tagClass}.png" alt="${item.tag}" class="tag-icon-img"></span> ${item.tag}
                             </span>
                         </div>
                         <p>${item.description}</p>
